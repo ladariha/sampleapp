@@ -1,0 +1,51 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <script>
+
+
+            function Player(url, name) {
+                this.name = name; // public 
+                var m_url = url; // private
+
+                // public
+                this.start = function() {
+                };
+                this.stop = function() {
+                    // calling private function
+                    foofuf();
+                };
+                // private
+                function foofuf() {
+                    document.write("private");
+                }
+
+
+
+
+                // static
+                var static_int = 0;
+                Player.prototype.getStatic = function() {
+                    return static_int;
+                };
+                Player.prototype.setStatic = function(v) {
+                    static_int = v;
+                };
+            }
+
+            var p1 = new Player();
+            
+
+
+        </script>
+        <div>TODO write content</div>
+    </body>
+</html>

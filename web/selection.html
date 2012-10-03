@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+
+        <meta charset="utf-8">
+        <title>NetBeans Testing Documentation</title>
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <!-- CSS
+  ================================================== -->
+        <link rel="stylesheet" href="stylesheets/base.css">
+        <link rel="stylesheet" href="stylesheets/skeleton.css">
+        <link rel="stylesheet" href="stylesheets/layout.css"> 
+        <link rel="stylesheet" href="stylesheets/custom.css">
+
+        <!--[if lt IE 9]>
+                <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+
+        <div class="container">
+            <div class="sixteen columns">
+                <div class="two columns">
+                    <img src="images/netbeans-logo.png"/>
+                </div>
+                <div class="thirteen columns">
+                    <h1 class="remove-bottom" style="margin-top: 40px">NetBeans Testing App</h1>
+                    <h5>NetBeans 7.3</h5>    
+                </div>
+
+                <hr />
+            </div>
+
+            <div class="two columns sidebar">
+                <nav>
+                    <h3 id="logo">Menu</h3>
+                    <ul id="menu">
+
+                    </ul>
+
+                </nav>
+                &nbsp;
+            </div>
+            <div class="thirteen columns offset-by-one content">
+                <h2>Selection Mode</h2>
+                <pre>
+Selection Mode in Chrome can be turned on by either using 
+NetBeans icon in Omnibar or from right click context menu.
+Selection Mode in Embedded browser can be turned on 
+from its toolbar or using Ctrl+Shift+S shortcut </pre>
+                <div style="text-align: center">
+
+                    <img class="w20"  src="images/select2.png" alt="Chrome context menu"/>
+                </div>
+                <ul style="list-style: circle;">
+                    <li>Task: Turn on Selection Mode in browser, hover over some element in browser
+                        <ul>
+                            <li>Result: Element is highlighted in browser</li>
+                        </ul>
+                    </li>  
+                    <li>Task: Turn on Selection Mode in browser, click on some element in browser
+                        <ul>
+                            <li>Result: Element stays highlighted after you hover over another element. The second element is also highlighted but with lighter color</li>
+                            <li>Result 2: Selected element is also selected in Navigator window (all parents node are expanded) </li>
+                            <li>Result 3: CSS Styles window is populated with properties of selected element</li>
+                            <li>Result 4: Properties window shows properties of the selected element (see issue <a href="http://netbeans.org/bugzilla/show_bug.cgi?id=216425">216425</a> and issue <a href="http://netbeans.org/bugzilla/show_bug.cgi?id=216424">216424</a>)</li>
+                        </ul>
+
+                    </li>
+                    <li>Task: Having Properties window set to display properties of selected element, click on "..." of some attribute
+                        
+                        <ul>
+                            <li>Result: New dialog is opened, you can specify a value of a new attribute or modify existing one</li>
+                        </ul>
+                    </li>
+                   
+
+                    <li>Task: Click on some item in Navigator
+                        <ul>
+                            <li>Result: Properties window shows properties for given element, all inspection related windows behaves the same as in task 2</li>
+                        </ul>
+                    </li>
+                    <li>Task: Hover over some item in Navigator
+                        <ul>
+                            <li>Result: Hovered element is highlighted in browser</li>
+                        </ul>
+                    </li>
+                    <li>Task: Start Select Mode in browser and select some element. Use Ctrl+Click to deselect it
+                        <ul>
+                            <li>Result: Element is no longer highlighted and CSS Styles window is cleared. Try the same with Navigator window</li>
+                        </ul>
+                    </li>
+                    <li>Task: Use Select Mode to select multiple elements using Ctrl+Click on each of them
+                        <ul>
+                            <li>Result: Elements are selected, CSS Styles window says "Multiple elements selected". Try the same with Navigator window</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Highlight selection</h3>
+
+
+                <ul style="list-style: circle;">
+                    <li>Run project with checked Highlight selection</li>
+                    <li>Hover over some element in Navigator. The element should be highlighted in browser</li>
+                    <li>Go to project properties and turn Highlight Selection off</li>
+                    <li>
+                        <ul>
+                            <li>Result: Hovering in Navigator no longer highlights element in browser. Select Mode is still available after turning off Highlight Selection</li>
+                        </ul>
+                    </li>  
+                </ul>
+
+                <h3>JavaFX Browser specific</h3>
+                <ul style="list-style: circle;">
+                    <li>Task: Toggle Selection Mode using keyboard shortcut Ctrl+Shift+S
+                        <ul>
+                            <li>Result: Selection mode is enabled/disabled</li>
+                        </ul>
+                    </li>  
+                </ul>
+            </div>
+
+        </div><!-- container -->
+
+
+
+        <!-- JS
+        ================================================== -->
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script src="javascripts/tabs.js"></script>
+        <script src="js/custom.js"></script>
+
+
+
+    </body>
+</html>

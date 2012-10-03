@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+
+        <meta charset="utf-8">
+        <title>NetBeans Testing Documentation</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <!-- CSS
+  ================================================== -->
+        <link rel="stylesheet" href="stylesheets/base.css">
+        <link rel="stylesheet" href="stylesheets/skeleton.css">
+        <link rel="stylesheet" href="stylesheets/layout.css"> 
+        <link rel="stylesheet" href="stylesheets/custom.css">
+
+        <!--[if lt IE 9]>
+                <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="sixteen columns">
+                <div class="two columns">
+                    <img src="images/netbeans-logo.png"/>
+                </div>
+                <div class="thirteen columns">
+                    <h1 class="remove-bottom" style="margin-top: 40px">NetBeans Testing App</h1>
+                    <h5>NetBeans 7.3</h5>    
+                </div>
+
+                <hr />
+            </div>
+
+            <div class="two columns sidebar">
+                <nav>
+                    <h3 id="logo">Menu</h3>
+                    <ul id="menu">
+
+                    </ul>
+
+                </nav>
+                &nbsp;
+            </div>
+            <div class="thirteen columns offset-by-one content">
+                <h2>CSS Editing</h2>
+               
+                <ul style="list-style: circle">
+                    <li> Current spec <a href="http://wiki.netbeans.org/TS_60_CSSeditor">TS_60_CSSeditor</a></li>
+                    <li>This spec is still valid and describes "plain old" CSS editor and should be tested as well</li>
+                </ul>
+                <h3 id="lifeediting"> Life Editing - CSS Styles & Rule Editor</h3>
+                <img src="images/cssstyles.png" alt="CSS Styles window"/>
+                <div>
+                    CSS Styles window requires html to run in browser.
+                </div>
+                <ul>  
+                    <li>Task: Selection styles
+                        <ol>
+                            <li>Run this file in browser (test both, Chrome & JavaFX) </li>
+                            <li>Turn Selection Mode on</li>
+                            <li>Select the title "NetBeans Testing App"</li>
+                        </ol>
+                        <ul>
+                            <li>Result: CSS Styles window shows in Property Summary list of applied properties to the title. Note (and make sure) that if you select some element in Navigator window, CSS Styles Window and Properties window are populated as well</li>
+                        </ul>
+                    </li>
+                    <li>Task: Property Summary interaction
+                        <ol>
+                            <li>Having selected heading from the previous step, check that <i>border</i> is expandable</li>
+                            <li>If you click on some property in Property Summary, Rule Editor is populated and shows css rule where the selected property is defined (try "font-size" and "color" and make sure Rule Editor shows different rules)</li>
+                            <li>If you double click on some item, the appropriate file with the CSS property definition is opened in editor</li>
+                            <li>Invoke right click context menu on some item in CSS Styles and select Go To Source. </li>
+                        </ol>
+                        <ul>
+                            <li>Result: The appropriate file with the CSS property definition is opened in editor</li>
+                        </ul>
+                    </li>
+                    <li>Task: Styles section
+                        <ol>
+                            <li>Having selected heading from the previous step, check that Styles shows list of applied css rules for given element</li>
+                            <li>If you click on some rule in Styles, Rule Editor is populated and shows the selected css rule </li>
+                            <li>If you double click on some item, the appropriate file with the CSS property definition is opened in editor</li>
+                            <li>Invoke right click context menu on some item in Styles and select Go To Source. </li>
+
+                        </ol>
+                        <ul>
+                            <li>Result: The appropriate file with the CSS property definition is opened in editor</li>
+                        </ul>
+                    </li>
+                    <li>Task: Overridden Properties
+                        <ol>
+                            <li>Have some HTML element which styles are overridden (e.g. use css selector for element and for class and add "color" property to both of them with different value)</li>
+                            <li>Run page and select the element in Navigator</li>
+                            <li>Select the 2 styles in CSS Styles window</li>
+                        </ol>
+                        <ul>
+                            <li>Result: One property is crossed (see image below)</li>
+                        </ul>
+                    </li>
+                </ul>
+                <img src="images/crossed.png" alt="Overridden property"/>
+                <br/><br/>
+                <img src="images/re_colors.png" alt="State of css properties"/>
+                <ul>
+                    <li>Task: Indication of state of CSS properties 
+                        <ol>
+                            <li>Run this file</li>
+                            <li>Select some li item in Navigator and click on "body" na Styles</li>
+                        </ol>
+                        <ul>
+                            <li>Result: Applied css properties are black, overriden are black crossed, unknown by browser (or erroneous) are red and unused are gray crossed </li>
+                        </ul>
+                    </li>
+                     <li>Task: Editing selected item
+                        <ol>
+                            <li>Having selected heading from the previous step, check that Styles shows list of applied css rules for given element</li>
+                            <li>If you click on some rule in Styles, Rule Editor is populated and shows the selected css rule </li>
+                            <li>Modify some property and make sure it changes the correct css file on the correct line. If you modify css style, the selected element should be instantly updated in browser and in CSS Styles window</li>
+                        </ol>
+                        <ul>
+                            <li>Result: Everything works</li>
+                        </ul>
+                    </li>
+                    <li>Task: CSS Styles: Document View
+                        <ol>
+                            <li>In CSS Styles window, switch to Document</li>
+                            <li>There is a list of all applied css files</li>
+                            <li>Each file can be expanded to show all rules defined inside it</li>
+                            <li>Try double click and context menu action to go to source as above</li>
+                            <li>Type some search parameter</li>
+                        </ol>
+                        <ul>
+                            <li><img src="images/cssstyles2.png" alt="Document View"/></li>
+                            <li>Result: Everything works. If you specify some search parameter, list is reduced to matching items</li>
+                        </ul>
+                    </li>
+                    <li>Task: Rule Editor and CSS Styles interaction
+                        <ol>
+                            <li>Select some property in Property Summary in Selection view</li>
+                            <li>Rule Editor should display all properties from the rule where the selected property is defined</li>
+                            <li>Edit some property in the Rule Editor. </li>
+                        </ol>
+                        <ul>
+                            <li>Result: Everything works. Properties can be modified directly from the Rule Editor. 
+                                It should work the same if you select some DOM element (right column) or 
+                                rule (left column) from Style Cascade section. If you switch to Document View and select some rule, Rule Editor lists all properties from the given rule</li>
+                        </ul>
+                    </li>
+                </ul>
+                <img src="images/ruletoolbar.png" alt="Toolbar in Rule Editor"/>
+                 <ul>  
+                     
+                    <li>Task: New Control toolbar in Rule Editor
+                        
+                        <ol>
+                            <li>Select some element either from Navigator window or using Select Mode</li>
+                            <li>Select some of its styles from CSS Styles</li>
+                            <li>Rule Editor is populated. You can see action icon in the top right corner with following actions: Add Property, Create Rule, Delete Rule</li>
+                        </ol>
+                        <ul>
+                            <li>Result: Try each of this action and make sure the you can add property to the rule, 
+                                delete selected rule or add a new rule to the file. Field "Stylesheet" has to correspond with stylesheet 
+                            where the selected rule is defined. "At Rule" lists @media queries in css file and allows to insert a rule
+                            to the specific @media query</li>
+                        </ul>
+                    </li>
+                    <li>Task: Simple list of values in Add Property and Rule Editor
+                        <ol>
+                            <li>Select some item in Navigator and some of its styles in CSS Styles</li>
+                            <li>Rule editor is populated with given rule</li>
+                        </ol>
+                        <ul>
+                            <li>Result: Test that for some know properties there is a list of possible values (color, float etc.) and also there is "none". If you select none then the property is removed from the rule</li>
+                        </ul>
+                    </li>
+                     <li>Task: Cursor position in editor is in sync with CSS Styles window
+                        <ol>
+                            <li>Run html file</li>
+                            <li>Place cursor into some element in the source</li>
+                        </ol>
+                        <ul>
+                            <li>Result: CSS Styles window contains styles for the given element</li>
+                        </ul>
+                    </li>
+                     <li>Task: Rule Editor - Add Property
+                        <ol>
+                            <li>Open /stylesheets/base.css in this project</li>
+                            <li>Place cursor inside some rule. Rule Editor window should open and show all properties in the rule</li>
+                            <li>Press the "+" next to the "Add Property" button</li>
+                            <li>New dialog is opened, try to change change the way properties are order using the "Show Property Categories" switch button</li>
+                            <li>Already used properties can't be modified in this dialog</li>
+                            <li>Select some line and type in to the value cell</li>
+                            <li>Try to filter out properties using the filter text field</li>
+                            <li>Confirm changes with "OK"</li>
+
+                        </ol>
+                        <ul>
+                            <li>Result: Everything works.  New properties are added</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="offline">Rule Editor - offline editing</h3>
+                <ul style="list-style: circle">
+                    <li> Current spec <a href="http://wiki.netbeans.org/TS_60_CSSeditor">TS_60_CSSeditor</a></li>
+                    <li>This spec is still valid and describes "plain old" CSS editor and should be tested as well</li>
+                </ul>
+                <img src="images/ruleditor.png" alt="Rule Editor window"/>
+                <ul style="list-style: circle;">
+                    <li>Task: Rule Editor - basics
+                        <ol>
+                            <li>Open /stylesheets/base.css in this project</li>
+                            <li>Place cursor inside some rule. Rule Editor window should open and show all properties in the rule</li>
+                            <li>By default, properties are in categories</li>
+                            <li>Name of the current rule is next to the filter icons</li>
+                            <li>If some property has a vendor specific prefix then it is under category named by the particular browser (see the picture above)</li>
+                            <li>Pressing the "arrow" button expands list of common values</li>
+                            <li>Try to edit some property directly in Rule Editor window by double clicking in cell for property's value</li>
+                            <li>Make sure all filter/sorting buttons in top of the Rule Editor works</li>
+                        </ol>
+                        <ul>
+                            <li>Result: Everything works.  (see issue <a href="http://netbeans.org/bugzilla/show_bug.cgi?id=216852">216852</a>)</li>
+                        </ul>
+                    </li>
+                    <li>Task: Rule Editor - Add Property
+                        <ol>
+                            <li>Open /stylesheets/base.css in this project</li>
+                            <li>Place cursor inside some rule. Rule Editor window should open and show all properties in the rule</li>
+                            <li>Press the "+" next to the "Add Property" button</li>
+                            <li>New dialog is opened, try to change change the way properties are order using the "Show Property Categories" switch button</li>
+                            <li>Already used properties can't be modified in this dialog</li>
+                            <li>Select some line and type in to the value cell</li>
+                            <li>Try to filter out properties using the filter text field</li>
+                            <li>Confirm changes with "OK"</li>
+
+                        </ol>
+                        <ul>
+                            <li>Result: Everything works.  New properties are added</li>
+                        </ul>
+                    </li>
+                    
+                     
+                    <li>Task: New Control toolbar in Rule Editor
+                        
+                        <ol>
+                            <li>Put cursor into some css rule (try embedded style and css file)</li>
+                            <li>Rule Editor is populated. You can see action icon in the top right corner with following actions: Add Property, Create Rule, Delete Rule</li>
+                        </ol>
+                        <ul>
+                            <li>Result: Try each of this action and make sure the you can add property to the rule, 
+                                delete selected rule or add a new rule. Field "Stylesheet" has to correspond with stylesheet 
+                            where the selected rule is defined. "At Rule" lists @media queries in css file and allows to insert a rule
+                            to the specific @media query</li>
+                        </ul>
+                    </li>
+                    <li>Task: Simple list of values in Add Property and Rule Editor
+                        <ol>
+                            <li>Put cursor into some css rule </li>
+                            <li>Rule editor is populated with given rule</li>
+                        </ol>
+                        <ul>
+                            <li>Result: Test that for some know properties there is a list of possible values (color, float etc.) and also there is "none". If you select none then the property is removed from the rule</li>
+                        </ul>
+                    </li>
+                    <li>Task: Filter content of Rule Editor window
+                        <ol>
+                            <li>Try all 4 filters: Show all css properties, Show property categories, Natural sort and Alphabetical sort </li>
+                        </ol>
+                        <ul>
+                            <li>Result: Properties in Rule Editor are sorted as expected</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div><!-- container -->
+
+        <!-- JS
+        ================================================== -->
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script src="javascripts/tabs.js"></script>
+        <script src="js/custom.js"></script>
+
+
+
+    </body>
+</html>

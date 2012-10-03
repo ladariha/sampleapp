@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+
+        <meta charset="utf-8">
+        <title>NetBeans Testing Documentation</title>
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <!-- CSS
+  ================================================== -->
+        <link rel="stylesheet" href="stylesheets/base.css">
+        <link rel="stylesheet" href="stylesheets/skeleton.css">
+        <link rel="stylesheet" href="stylesheets/layout.css"> 
+        <link rel="stylesheet" href="stylesheets/custom.css">
+
+        <!--[if lt IE 9]>
+                <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+
+        <div class="container">
+            <div class="sixteen columns">
+                <div class="two columns">
+                    <img src="images/netbeans-logo.png"/>
+                </div>
+                <div class="thirteen columns">
+                    <h1 class="remove-bottom" style="margin-top: 40px">NetBeans Testing App</h1>
+                    <h5>NetBeans 7.3</h5>    
+                </div>
+
+                <hr />
+            </div>
+
+            <div class="two columns sidebar">
+                <nav>
+                    <h3 id="logo">Menu</h3>
+                    <ul id="menu">
+
+                    </ul>
+
+                </nav>
+                &nbsp;
+            </div>
+            <div class="thirteen columns offset-by-one content">
+                <h2>Running JavaScript tests - js-test-driver support</h2>
+                <h3>Trivia</h3>
+                <ul style="list-style: circle">
+                    <li>Download js-test-driver from <a href="http://code.google.com/p/js-test-driver/downloads/list">http://code.google.com/p/js-test-driver/downloads/list</a></li>
+                    <li>js-test-driver need (by default) jsTestDriver.conf. NetBeans expect this file to be in you configuration files</li>
+                    <li>this conf file can contain: list of files to be loaded, list of files to be excluded and other settings</li>
+                    <li>this application contains some test files and libraries in "tests" folder (extracted from AngularJS template). 
+                        Tests as such are in "unit" folder (for Jasmine) and "qunit" (for QUnit)</li>
+                </ul>
+                <div>
+                    Useful links:
+                    <ul style="list-style: circle">
+                        <li style="color:red">See issue <a style="color:red" href="http://netbeans.org/bugzilla/show_bug.cgi?id=217860">217860</a></li>
+                        <li><a href="http://code.google.com/p/js-test-driver/">http://code.google.com/p/js-test-driver/</a></li>
+                        <li><a href="http://code.google.com/p/js-test-driver/w/list">js-test-driver wiki</a></li>
+                        <li><a href="http://code.google.com/p/js-test-driver/wiki/GettingStarted">Getting started</a></li>
+                    </ul>
+                </div>
+                <h3>Getting ready</h3>
+                <img src="images/driversetup.png" alt="Test Setup"/>
+                <ul style="list-style: circle">
+                    <li>Task: Install js-test-driver
+                        <ol>
+                            <li>Right click on your HTML/JavaScript project (or this application or create a new HTML/JavaScript application from AngularJS template that contains some tests) and select Test</li>
+                            <li>Similar dialog to the one above is opened, specify path to the jar file downloaded from <a href="http://code.google.com/p/js-test-driver/downloads/detail?name=JsTestDriver-1.3.4.b.jar">here</a></li>
+                            <li>Modify port number and which browser to be run</li>
+                            <li>Confirm the dialog</li>
+                        </ol><ul>
+                            <li>Result: New page/tab is opened in selected  browsers with so called slave page. These are required and can contain useful information such as logging or information about failures. When all tests are finished, you can see results in NetBeans. Check output window and see 2 tabs: js-test-driver Server and Running JS unit tests. In Services window, there is a new node called "JS Test Driver". </li>
+                        </ul>
+                    </li>
+                </ul>
+                <img class="w70" src="images/result.png" alt="Results"/>
+                <ul style="list-style: circle">
+                    <li>Task: Test configuration file
+                        <ol>
+                            <li>In this project, expand Configuration Files node and open jsTestDriver.conf</li>
+                        </ol><ul>
+                            <li>Result: Content of the file is colored, try to copy the content to some YAML file. Coloring should be identical (as for now, it is the same as Apache Configuration File)</li>
+                        </ul>
+                    </li>
+                    <li>Task: Missing configuration file
+                        <ol>
+                            <li>By default, the NetBeans uses jsTestDriver.conf located in your Configuration Files</li>
+                            <li>Rename this file</li>
+                            <li>Run tests</li>
+                        </ol><ul>
+                            <li>Result: Test button is disabled and you cannot run test.</li>
+                        </ul>
+                    </li>
+                    <li class="todo">Task: Change configuration file
+                        <ol>
+                            <li>Not yet available. Once (if ever) it is, create new configuration file</li>
+                            <li>Run tests with selected configuration</li>
+                        </ol><ul>
+                            <li>Result: Only tests from the new conf file were performed.</li>
+                        </ul>
+                    </li>
+                    <li>Task: Change driver configuration
+                        <ol>
+                            <li>Open Services window and right click on JS Test Driver</li>
+                            <li>Select Configure</li>
+                        </ol><ul>
+                            <li>Result: Dialog similar to the one on top of this page is opened. Change some settings and run tests again to be sure that these changes are respected</li>
+                        </ul>
+                    </li>
+                    <li>Task: Stop JS Test Driver
+                        <ol>
+                            <li>Open Services window and right click on JS Test Driver</li>
+                            <li>Select Stop</li>
+                        </ol><ul>
+                            <li>Result: The driver is stopped, icon is missing the green triangle and header of the "js-test-driver Server" output window is not bold. Slave page in browser is now gray. Try to start it again (see issue <a href="http://netbeans.org/bugzilla/show_bug.cgi?id=217950">217950</a>)</li>
+                        </ul>
+                    </li>
+                    <li>Task: Missing test files
+                        <ol>
+                            <li>Open jsTestDriver.conf and add nonexisting path to be loaded, e.g. "- foo/unit/*.js"</li>
+                            <li>Run tests with selected configuration</li>
+                        </ol><ul>
+                            <li>Result: Output|Running JS Unit tests shows stack trace that given file was not found</li>
+                        </ul>
+                    </li>
+                    <li class="todo">Task: Logging in tests
+                        <ol>
+                            <li>Run tests in this project or use e.g.  <pre>jstestdriver.console.log("\n =============", " START TEST"); </pre> in your tests</li>
+                            <li>Check Output|Running JS Unit tests</li>
+                        </ol><ul>
+                            <li>Result: Output contains logging from test </li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Using external JSTestDriver</h3>
+                NetBeans supports to run tests on external JSTestDriver "server". To test it, start JSTestDriver from command line (single line):
+                <pre>
+me@pc:sampleApp/config$ java -jar JsTestDriver.jar 
+--runnerMode DEBUG --config jsTestDriver_external.conf --port 9876
+                </pre>
+                Now open <a href="http://localhost:9876">http://localhost:9876</a> and click on Capture this browser
+                <ul style="list-style: circle">
+                    <li>Task: External JSTestDriver
+                        <ol>
+                            <li>Go to Services window and right click on "JS Test Driver"</li>
+                            <li>Select Configure</li>
+                            <li>Enter the URL above and specify path to jstestdriver jar and select the captured browser</li>
+                            <li>Confirm the dialog</li>
+                            <li>Test project</li>
+                        </ol><ul>
+                            <li>Result: Tests were executed as expected. If you go to Services window again, you can see that you cannot start/stop this external JS Test Driver from its context menu </li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Debugging unit tests</h3>
+                <ul style="list-style: circle">
+                    <li>Task: Debugging Unit Tests
+                        <ol>
+                            <li>Open sampleApp/tests/unit/jasmine.js and add breakpoint to line 12 (with var calc)</li>
+                            <li>Select project node in Projects and click on Test</li>
+                            <li>Specify common parameters and as a browser add "Chrome with NetBeans JS Debugger"</li>
+                            <li>Confirm the dialog</li>
+                            <li>Test project</li>
+                        </ol><ul>
+                            <li>Result: Tests are executed and code execution stops at the line breakpoint. From now on all common
+                                debugging features should be working. You can follow <a href="debugger.html">these instructions</a>. Note that DOM breakpoints may not work </li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Jasmine</h3>
+                <div>
+                    This application contains basic Jasmine tests. The configuration file is called <pre>jsTestDriver_jasmine.conf</pre> To use it,
+                    remove the "_jasmine" part from its name and Test project
+                </div>
+                <ul style="list-style: circle">
+                    <li><a href="http://pivotal.github.com/jasmine/">http://pivotal.github.com/jasmine/</a></li>
+                    <li><a href="http://www.adobe.com/devnet/html5/articles/unit-test-javascript-applications-with-jasmine.html">introduction to Jasmine</a></li>
+                </ul>
+                <h3>QUnit</h3>
+                <div>
+                    This application contains basic QUnit tests. The configuration file is called <pre>jsTestDriver_qunit.conf</pre> To use it,
+                    remove the "_qunit" part from its name and Test project.
+                </div>
+                <div class="important">
+                    IMPORTANT: test functions in TestCase have to start with "test"
+                </div>
+                <br/>
+
+            </div>
+
+        </div><!-- container -->
+
+
+
+        <!-- JS
+        ================================================== -->
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script src="javascripts/tabs.js"></script>
+        <script src="js/custom.js"></script>
+
+
+
+    </body>
+</html>

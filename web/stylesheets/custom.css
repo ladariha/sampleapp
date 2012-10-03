@@ -1,0 +1,127 @@
+pre{
+    background-color: #F2F2F2;
+    margin: 1em;
+    padding: 1em;
+    font-family: monospace,monospace;
+    -webkit-box-shadow: 1px 1px 5px #CCC;
+    -moz-box-shadow: 1px 1px 5px #ccc;
+    -ms-box-shadow: 1px 1px 5px #ccc;
+    -o-box-shadow: 1px 1px 5px #ccc;
+    box-shadow: 1px 1px 5px #CCC;
+    content: ahoj;
+}
+body{
+}
+pre:hover{background-color: #E5F2FF;
+}
+
+a:hover{
+    background-color: #E5F2FF;
+}
+
+li > span{
+    font-weight: bold;
+}
+
+ul{
+    padding: 1em 0 1em 0;
+}
+
+img{
+    width: 50%;
+}
+
+div.two.columns img{
+    width:80%;
+}
+
+.todo{
+    font-style: italic;
+    color: #fa9e51;
+}
+
+
+#webkitTransitionEnd {
+    display: block;
+    width: 100px;
+    text-align: center;
+    padding: 20px;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+    transition: border-bottom 0.5s linear; /* vendorless fallback */
+    -webkit-transition: border-bottom 0.5s linear; /*safari and chrome */
+}
+
+#webkitTransitionEnd:hover{
+    color: #000;
+    background: #fff;   
+}
+.w10{
+    width: 10%;
+}
+
+.w20{
+    width: 20%;
+}
+
+.w30{
+    width: 30%;
+}
+.w40{
+    width: 40%;
+}
+.w50{
+    width: 50%;
+}
+.w60{
+    width: 60%;
+}
+.w70{
+    width: 70%;
+}
+.w80{
+    width: 80%;
+}
+.w90{
+    width: 90%;
+}
+.w95{
+    width: 95%;
+}
+.important {
+    color: #cc0000
+}
+#foo{
+    
+}
+
+@media (max-width: 767px) {
+  .visible-phone {
+    display: inherit !important;
+  }
+  .hidden-phone {
+    display: none !important;
+  }
+  .hidden-desktop {
+    display: inherit !important;
+  }
+  .visible-desktop {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .visible-tablet {
+    display: inherit !important;
+  }
+  .hidden-tablet {
+    display: none !important;
+  }
+  .hidden-desktop {
+    display: inherit !important;
+  }
+  .visible-desktop {
+    display: none !important ;
+  }
+}

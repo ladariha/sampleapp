@@ -1,0 +1,14 @@
+{
+ "Home":"index.html",
+    "Debugger": "debugger.html",
+    "DOM": "dom.html",
+    "Hover": "hover.html",
+    "Selection Mode": "selection.html",
+    "Chrome Plugin": "chrome.html",
+    "ClientSide Project": "project.html",
+    "CSS Editing": "css.html",
+    "HTML Editing": "html.html",
+    "JavaScript Editor": "javascript.html",
+    "JavaFX Browser": "fx.html"
+}
+

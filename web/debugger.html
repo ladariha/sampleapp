@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+
+        <meta charset="utf-8">
+        <title>NetBeans Testing Documentation</title>
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        
+        
+        <!-- CSS
+  ================================================== -->
+        <link rel="stylesheet" href="stylesheets/base.css">
+        <link rel="stylesheet" href="stylesheets/skeleton.css">
+        <link rel="stylesheet" href="stylesheets/layout.css"> 
+        <link rel="stylesheet" href="stylesheets/custom.css">
+        <script src="js/libs/syntaxhighlighter/scripts/shCore.js"></script>
+        <script src="js/libs/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+        <link rel="stylesheet" type="text/css" href="js/libs/syntaxhighlighter/styles/shCore.css"/>
+        <link rel="stylesheet" type="text/css" href="js/libs/syntaxhighlighter/styles/shThemeDefault.css"/>
+        <!--[if lt IE 9]>
+                <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+
+        <div class="container">
+            <div class="sixteen columns">
+                <div class="two columns">
+                    <img src="images/netbeans-logo.png"/>
+                </div>
+                <div class="thirteen columns">
+                    <h1 class="remove-bottom" style="margin-top: 40px">NetBeans Testing App</h1>
+                    <h5>NetBeans 7.3</h5>    
+                </div>
+
+                <hr />
+            </div>
+
+            <div class="two columns sidebar">
+                <nav>
+                    <h3 id="logo">Menu</h3>
+                    <ul class="tw" id="menu">
+
+
+                    </ul>
+
+                </nav>
+
+            </div>
+            <div class="thirteen columns offset-by-one content">
+                <h2>JavaScript debugger</h2>
+                <h3>DOM & line breakpoints - practical</h3>
+                <ul style="list-style: circle;">
+                    <li>
+                        each item list below triggers some JavaScript function
+                    </li>
+                    <li>to try it, you need to set correct breakpoints and add 2 watches: this.operations (objects' variable) and operator (object). Make sure that Variables and Watches windows show these watches and their values while testing cases below </li>
+                    <li>each item in the list says where you should place breakpoint</li>
+                    <li>for the "Clone me", add breakpoint to the &lt;ul&gt; element(because new &lt;li&gt; child elements will be created)  </li>
+                </ul>
+                <h5 id="log" style="color:red;">Number of operations: 0</h5>
+                <ul style="list-style: circle;">
+    <li style="cursor: pointer" onclick="operator.removeMe(this);">Remove me (breakpoint on node removal + breakpoint on nonDOM line)</li>
+    <li  style="cursor: pointer" onclick="operator.removeMe(this);">Remove me 2 (breakpoint on node removal + breakpoint on nonDOM line)</li> 
+    <li  style="cursor: pointer" onclick="operator.setAttr(this);">Change onclick action to show alert message (breakpoint on attribute change - jQuery) </li>
+    <li  style="cursor: pointer" onclick="operator.removeAttr(this);" title="Hi there"> Remove title (breakpoint on attribute - jQuery)</li>
+    <li  style="cursor: pointer" onclick="operator.addAttr(this);">Add title (breakpoint on attribute change - jQuery)</li>
+    <li  style="cursor: pointer" onclick="operator.createLink(this)">Turn me into link  (breakpoint on subtree modifications)</li>
+    <li  style="cursor: pointer" onclick="operator.cloneMe(this)">Clone me (breakpoint on subtree modifications)</li>
+    <li  style="cursor: pointer" id="toBlue" onclick="operator.setAttrPlain('toBlue')">Make me blue (breakpoint on attribute change - plain JS)</li>
+    <li  style="cursor: pointer" onclick="dummy();">Dummy click (breakpoint on simple function)</li>
+
+                </ul>
+                <h3>XMLHTTP breakpoints - practical</h3>
+                <ul style="list-style: circle;">
+    <li style="cursor: pointer" onclick="req.get('data/lines.json');">Click to make GET Request 
+                        <ul><li>add XMLHTTPRequest breakpoint for this URL: data/lines.json</li></ul></li>
+    <li style="cursor: pointer" onclick="req.$get('data/lines.json');">Click to make jQuery getJSON Request <ul><li>add XMLHTTPRequest breakpoint for this URL: data/lines.json</li></ul></li>
+    <li style="cursor: pointer" onclick="req.massive();">Click to make GET Request <ul><li>add XMLHTTPRequest breakpoint for partial URL data/dummy</li>
+                            <li>3 requests will be made, URL of 2 of them matches "dummy", so code should stop on 2 breakpoints</li></ul></li>
+    <li style="cursor: pointer" onclick="req.get('data_2/lines.json')">Click to make GET Request <ul><li>add XMLHTTPRequest breakpoint for empty URL - should stop on all requests to any URLs</li></ul></li>
+                </ul>
+                <h4>Output log:</h4>
+                <pre id="output">
+                
+                </pre>
+
+
+                <h3>Events breakpoints - practical</h3>
+                There is a lot of categories of events. Following examples tests at least one action of each category. It means that first of all you need to create breakpoints for each category and its selected action. If particular type of event is not available in your browser, the appropriate item is crossed
+                <br/>
+                <canvas style="width:50%; height:200px;" id="animationCanvas">
+
+                </canvas>
+                <ul style="list-style: circle;">
+                    <li id="animation" style="cursor: pointer" >Animation
+                        <ul><li>
+    <input type="button" value="Start animation" onclick="controls.animation.start();"/> 
+    <input type="button" value="Stop animation" onclick="controls.animation.stop();"/> 
+                            </li></ul></li>
+                    <li id="clipboard" style="cursor: pointer">Clipboard - copy
+                        <ul><li>
+                                <input data-operator="clipboard" data-event="copy" id="copy" type="text" value="Copy this text to clipboard" data-id="#copy"/>  
+
+                            </li></ul></li>
+                    <li id="control" style="cursor: pointer">Control - change
+                        <ul><li>
+
+                                Change (move slider): <input data-operator="control" data-event="change"  id="change" type="range" min="0" max="10" step="1" data-id="#change"/>
+                                Value: <span id="slidervalue"></span>
+                            </li>
+
+
+
+
+                        </ul></li>
+                    <li id="dom" style="cursor: pointer">DOM Mutation - DOMNodeInserted
+                        <ul><li>
+    <input onclick="$(this).parent().append($(this).clone());" data-operator="dom" data-event="DOMNodeInserted" id="clone" type="button" value="Clone me" data-id="window"/>     
+
+                            </li></ul></li>
+                    <li id="device" style="cursor: pointer" >Device - deviceorientation
+                        <ul><li>
+                                Rotation: <input data-operator="device" data-event="deviceorientation" id="deviceorientation" type="text" value="" data-id="window"/>
+
+                            </li></ul></li>
+
+                    <li id="keyboard" style="cursor: pointer" >Keyboard - keypress
+                        <ul>
+                            <li>Put cursor into the text field and start typing</li>
+                            <li>
+                                <input data-operator="key" data-event="keypress" id="keypress" type="text" value="" data-id="#keypress"/>
+
+                            </li></ul></li>
+                    <li id="load" style="cursor: pointer" >Load - load
+                        <ul> <li>
+
+    <input type="button" value="Load image" onclick="controls.load.loadImage();"/>
+
+                            </li></ul></li>
+                    <li id="mouse" style="cursor: pointer">Mouse - dblclick
+                        <ul><li><input data-operator="mouse" data-event="dblclick" id="dblclick" type="button" value="Double Click On Me" data-id="#dblclick"/></li></ul></li>
+                    <li id="timer" style="cursor: pointer" class="todo">Timer - timer fired
+                        <ul><li>
+    <input type="button" value="Start timer" onclick="controls.timer.start();" data-operator="timer" data-event="timerFired" data-id="window" id="timerFired" /> 
+
+
+                            </li></ul></li>
+                    <li id="touch" style="cursor: pointer">Touch - touch start
+                        <ul><li>Create breakpoint and touch screen</li>
+                            <li><input data-operator="touch" data-event="touchstart" id="touchstart" type="button" value="Touch Me" data-id="#touchstart"/></li>
+                        </ul></li>
+                </ul>
+                <h4>Output:</h4>
+                <pre id="output2">
+                
+                </pre>
+                <div id="imageCont">
+
+                </div>
+
+
+
+                <h3>Breakpoints - usecases</h3>
+                All following usecases should be tested on both configuration: Internal web server, none server (and if available custom server as well)
+                <ul style="list-style: circle;">
+                    <li>Task: Create new DOM breakpoint from Navigator window
+                        <ol>
+                            <li>Run HTML page</li>
+                            <li>Select some node in Navigator, right mouse click and add some breakpoint</li>
+                        </ol>
+                        <ul>
+                            <li>Result: Appropriate breakpoint is created and list in Breakpoints window</li>
+                        </ul>
+                    </li>  
+                    <li>Task: Create new DOM breakpoint from Breakpoints window
+                        <img src="images/newdombp.png"/>
+                        <ol>
+                            <li>Open HTML page in IDE</li>
+                            <li>Open Breakpoints window (Alt+Shift+5)</li>
+                            <li>Click on "Create new breakpoint" icon, set Type to "DOM"</li>
+                            <li class="todo">Fields for line and DOM node are not writable</li>
+                        </ol>
+                        <ul>
+                            <li>Result: Appropriate breakpoint is created and list in Breakpoints window </li>
+                        </ul>
+                    </li>  
+                    <li>Task: Create new DOM breakpoint from Debug|New Breakpoint
+                        <ul>
+                            <li>Result: Appropriate breakpoint is created and list in Breakpoints window (issue <a href="http://netbeans.org/bugzilla/show_bug.cgi?id=216328">216328</a>)</li>
+                        </ul>
+                    </li> 
+                    <li>Task: Create new line breakpoint
+                        <ol>
+                            <li>Click on some line</li>
+                            <li>Try one of following: (1) Right mouse click and "Toogle line breakpoint" or (2) keyboard shortcut Ctrl+F8 or (3) click on line number</li>
+                        </ol>
+                        <ul>
+                            <li>Result: Appropriate breakpoint is created and list in Breakpoints window</li>
+                        </ul>
+                    </li> 
+                    <li>Task: Create new watch
+                        <ol>
+                            <li>Click on some variable</li>
+                            <li>Invoke New Watch dialog from context menu, type variable name and confirm it </li>
+                        </ol>
+                        <ul>
+                            <li>Result: New watch is created and it is listed in Variables and Watches windows</li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+                <h3>Debugging</h3>
+                <ul>
+                    <li>Most of following tasks can be performed with this file and JavaScript file js/debug_events.js. In the JS file, there you can add breakpoints for e.g. ClipboardOperator.copy(). All following steps assume you did that.</li>
+                </ul>
+                <ul style="list-style: circle;">
+                    <li>Task: Test common debugging steps (Step Into, Step Over etc.) in local and remote files
+                        <ol>
+                            <li>You can use above listener for Clipboard-copy that calls some dummy functions from different js files </li>
+                            <li>If necessary each js file is opened in editor during debugging</li>
+                        </ol>
+                        <ul><li>Result: All debugging "steps" works as expected </li></ul>
+
+                    </li>
+                    <li>Task: Variables
+                        <ol>
+                            <li>While debugging, check the Variables window </li></ol><ul>
+                            <li>Result: The window should contain simple variables and their values as well as objects and their properties and values. Each object should have __proto__ property. In Global there are variables/objects with global scope </li>
+                        </ul>
+                    </li>
+                </ul>
+                <img src="images/variables1.png" alt="Variables window"/>
+                <ul style="list-style: circle;">
+                    <li>Task: Variable value
+                        <ol>
+                            <li> While debugging, hover over some variable in editor </li></ol><ul>
+                            <li>Result: Value of the hover variable is displayed </li>
+                        </ul>
+                    </li>
+                </ul>
+                <img src="images/value2.png" alt="Variable's value"/>
+                <ul style="list-style: circle;">
+                    <li>Task: Call Stack window
+                        <ol>
+                            <li> While debugging the Clipboard-Copy scenario, open Call Stack window (if not already)</li></ol><ul>
+                            <li>Result 1: As you Step Over, Step Into etc. the current call stack is updated. </li>
+                            <li>Result 2: Check that if you right click on some item and select Go To Source the appropriate file is opened in Editor on given line </li>
+                            <li>Result 3: Call stack lines in editor are highlighted</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul style="list-style: circle;">
+                    <li>Task: Call Stack - Copy
+                        <ol>
+                            <li> While debugging the Clipboard-Copy scenario, open Call Stack window (if not already)</li>
+                            <li>As you Step Over, Step Into etc. the current call stack is updated. </li>
+                            <li>Right click on some item in Call Stack window and select "Copy Stack". </li>
+                        </ol>    <ul>
+                            <li>Result: Current call stack is copied to Clipboard, you can verify it by pasting it to some text editor. </li></ul>
+
+                    </li>
+                    <li>Task: Call Stack - Make current
+                        <ol>
+                            <li> While debugging the Clipboard-Copy scenario, open Call Stack window (if not already)</li>
+                            <li>As you Step Over, Step Into etc. the current call stack is updated. </li>
+                            <li>Right click on some item in Call Stack window and select "Make current". </li>
+                        </ol>    <ul>
+                            <li>Result: Editor show corresponding source code, selected frame is bold. Make sure that Variables window contains only variables (and their values) that are in the given frame context </li></ul>
+
+                    </li>
+                </ul>
+                <img src="images/steps.png" alt="Variable's value"/>
+                <ul style="list-style: circle;">
+                    <li>Task: Watches
+                        <ol>
+                            <li> Add new watch for some expression</li></ol><ul>
+                            <li>Result 1: New watch is listed in Variables window (if Show watches inside Variables view is turned on). Toggle the Show watches inside Variables view and make sure that visibility of watches in Variables view changes</li>
+                            <li>Result 2: New watch is listed in Watches window. </li>
+
+                            <li>Result 3: Type and Value of the watched expression matches expected values. You can confirm this using Chrome DT and its watch expression feature</li>
+                        </ul>
+                    </li>
+                    <li>Task: Variable value in tooltip
+                        <ol>
+                            <li> Add new watch for some expression</li></ol><ul>
+                            <li>Result 1: New watch is listed in Variables window (if Show watches inside Variables view is turned on). Toggle the Show watches inside Variables view and make sure that visibility of watches in Variables view changes</li>
+                            <li>Result 2: New watch is listed in Watches window. </li>
+
+                            <li>Result 3: Type and Value of the watched expression matches expected values. You can confirm this using Chrome DT and its watch expression feature</li>
+                        </ul>
+                    </li>
+                    <li>Task: Expandable tooltip
+                        <ol>
+                            <li> Add line breakpoints in debug_event.js for the line with "foo=1"</li>
+                            <li>Run the file 
+                            </li>
+                        </ol>
+                        <ul>
+                            <li>Result: Code execution stops on the line with breakpoint, tooltip for object "e" is expandable and looks like the one on the screenshot below. You can use this tooltip on any object.</li>
+                            <li>Result 2: New watch is listed in Watches window. </li>
+
+                            <li>Result 3: Type and Value of the watched expression matches expected values. You can confirm this using Chrome DT and its watch expression feature</li>
+                        </ul>
+                    </li>
+                    <li>Task: Browser log
+                        <ol>
+                            <li> Run sample/debugger.html. There is a dummy logging (see snipped below)</li></ol><ul>
+                            <li>Result: If not opened, open Window|Output window and notice Browser Log. Check that it contains log messages that are in the mentioned file. Browser log also contains JavaScript errors and stack traces</li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+                <pre class="brush: js">
+console.log("LOG REPORT");
+console.warn("WARN REPORT");
+console.error("ERROR REPORT");
+console.trace("TRACE REPORT");</pre>
+                <ul style="list-style: circle">
+                    <li>Task: Deactivate all breakpoints
+                        <ol>
+                            <li> Run this page</li>
+                            <li>Add breakpoint to e.g. event listener Clipboard/Copy</li>
+                            <li>In the breakpoints window, click on "Deactivate all breakpoints"</li>
+                            <li>Breakpoint icon in Breakpoints window gets crossed</li>
+                            <li>Try copy some text from the input field <a href="#clipboard">above</a> page to clipboard</li>
+                        </ol><ul>
+                            <li>Result: Event is ignored, if you click on the icon again, it works again.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <img src="images/deact.png" alt="Deactivate all breakpoints"/>
+                 <ul style="list-style: circle">
+                    <li>Task: Evaluate expression
+                        <ol>
+                            <li>Run this page</li>
+                            <li>Add breakpoint to e.g. event listener Clipboard/Copy</li>
+                            <li>Try copy some text from the input field <a href="#clipboard">above</a> page to clipboard</li>
+                            <li>Code execution is stopped on the given line</li>
+                            <li>Step into few times</li>
+                            <li>Open Debug|Evaluate expression</li>
+                        </ol><ul>
+                            <li>Result: An evaluator window is opened in bottom editor area and evaluation result is visible in Variables window. Try to type some code and press Evaluate code fragment. Make sure it shows correct result. Repeat it one more time for different expression. Press the triangle icon in the right corner and a list of previously evaluated expressions is shown. If you pick some, the expression is inserted to the evaluator window  </li>
+                        </ul>
+                    </li>
+                </ul>
+                <img class="w95" src="images/eval.png" alt="Evaluate expression"/>
+            </div>
+
+        </div><!-- container -->
+        <!-- JS
+        ================================================== -->
+
+
+        <script src="./js/libs/jquery-1.7.1.js"></script>
+        <script src="javascripts/tabs.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="js/debug_events.js"></script> 
+        <script src="js/debug_xhr.js"></script> 
+        <script src="http://quality2.netbeans.org/db2/web/scripts/dashboard.js"></script>
+
+        <script>
+
+
+
+                    $(document).ready(function() {
+                        req = new RequestOperator("Foo");
+
+                    });
+
+                    function dummy() {
+                        console.log("dummy breakpoint");
+                    }
+                    var operator = new DOMMaster();
+
+                    function DOMMaster() {
+                            this.operations = 0;
+
+
+                            this.removeMe = function(el) { // public
+                                console.log("Removing node");
+                                $(el).remove();
+                                this.operations++;
+                                this.updateLog();
+                            };
+
+
+                            this.updateLog = function() { // private 
+                                $("#log").text("Number of operations: " + this.operations);
+                            };
+
+                            this.setAttr = function(el) {
+                                console.log("setting attr");
+                                $(el).attr("onclick", "alert(\"Number of operations not changed\");");
+                            };
+
+                            this.removeAttr = function(el) {
+                                console.log("removeAttr");
+                                $(el).removeAttr("title");
+                                this.operations++;
+                                this.updateLog();
+                            };
+
+                            this.cloneMe = function(el) {
+                                $(el).parent().append($(el).clone());
+                                this.operations++;
+                                this.updateLog();
+                            };
+
+                            this.addAttr = function(el) {
+                                console.log("addAttr");
+                                $(el).attr("title", "I have title :)");
+                                this.operations++;
+                                this.updateLog();
+                            }
+
+                            this.createLink = function(el) {
+                                $(el).html("<a href=\"#\">Link it is</a>");
+                                this.operations++;
+                                this.updateLog();
+                            }
+
+                            this.setAttrPlain = function(id) {
+                                var el = document.getElementById(id);
+                                if (typeof el != "undefined") {
+                                    el.setAttribute("style", "color:blue");
+                                    $('#' + id).text("I'm blue");
+                                    this.operations++;
+                                    this.updateLog();
+                                }
+                            }
+                        }
+        </script>
+        <script type="text/javascript">
+                                                SyntaxHighlighter.defaults['gutter'] = false;
+                                                SyntaxHighlighter.all()
+        </script>
+    </body>
+</html>

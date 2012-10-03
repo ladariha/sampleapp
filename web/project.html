@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+
+        <meta charset="utf-8">
+        <title>NetBeans Testing Documentation</title>
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <!-- CSS
+  ================================================== -->
+        <link rel="stylesheet" href="stylesheets/base.css">
+        <link rel="stylesheet" href="stylesheets/skeleton.css">
+        <link rel="stylesheet" href="stylesheets/layout.css"> 
+        <link rel="stylesheet" href="stylesheets/custom.css">
+
+        <!--[if lt IE 9]>
+                <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+
+        <div class="container">
+            <div class="sixteen columns">
+                <div class="two columns">
+                    <img src="images/netbeans-logo.png"/>
+                </div>
+                <div class="thirteen columns">
+                    <h1 class="remove-bottom" style="margin-top: 40px">NetBeans Testing App</h1>
+                    <h5>NetBeans 7.3</h5>    
+                </div>
+
+                <hr />
+            </div>
+
+            <div class="two columns sidebar">
+                <nav>
+                    <h3 id="logo">Menu</h3>
+                    <ul id="menu">
+
+                    </ul>
+
+                </nav>
+                &nbsp;
+            </div>
+            <div class="thirteen columns offset-by-one content">
+                <h3>HTML/JavaScript project related</h3>
+                <h4>New Project</h4>
+                <img class="w80" src="images/default.png" alt="Default Project Properties"/>
+                <ul style="list-style: circle;">
+                    <li>Task: Create empty project
+                        <ol>
+                            <li>Invoke New Project dialog </li>
+                            <li>select HTML/JavaScript and HTML5 Application</li>
+                            <li>Finish with default values</li>
+                        </ol>
+                        <ul>
+                            <li>Result: New project is created. It contains single index.html file and 4 folders: config, nbproject, public_html and test. Make sure that default settings correspond to the image above</li>
+                        </ul>
+                    </li>  
+                    <li>Task: Create project with standard template
+                        <ol>
+                            <li>Invoke New Project dialog </li>
+                            <li>select HTML/JavaScript and HTML5 Application</li>
+                            <li>In the 3rd step Site Template, select Download Online Template</li>
+                            <li>Select HTML5 Boilerplate and check template's description below</li>
+                            <li>Press Next</li>
+                            <li>In the JavaScript Libraries step, there are already selected some libraries that are bundled with the template. Check that you cannot remove them</li>
+                            <li>Use text field next to Available to filter list of libraries</li>
+                            <li>Select e.g. Dojo and click to the Version column. List of available versions of Dojo is offered, pick some and add it to the project</li>
+                            <li>Change Libraries Folder to "js/libs_custom" and finish the process</li>
+                        </ol>
+                        <ul>
+                            <li>Result: New project is created. Make sure it contains js/libs and js/libs_custom (withi Dojo library) folders as well as some default files from HTML5 Boilerplate (icons, readme.md....)</li>
+                        </ul>
+                    </li>  
+                    <li>Task: Create project with custom template
+                        <ol>
+                            <li>Having the project from previous step, right click on it in Projects window </li>
+                            <li>Select Save as Template</li>
+                            <li>In the opened dialog, you can specify what should be in the template. Uncheck the same items as on the image below</li>
+                            <li>Select some template name and location</li>
+                            <li>Press Finish</li>
+                            <li>Now invoke New Project dialog, sleect HTML/JavaScript and HTML5 Application</li>
+                            <li>Select "Select Archive" and point to the location of your template, press Next</li>
+                            <li>In the JavaScript Libraries step, there are already selected some libraries that are bundled with the template. Check that you cannot remove them</li>
+                            <li>press Finish</li>
+                        </ol>
+                        <ul>
+                            <li>Result: New project is created from custom template. Make sure it doesn't contain the files/folders unchecked in Save as template dialogs </li>
+                        </ul>
+                    </li> 
+                </ul>
+                <img src="images/template.png" class="w80" alt="Template Dialog"/>
+                <br/>
+                <h4>New Project with sources</h4>
+                <ul>
+                    <li>Task: Create Project with existing sources
+                        <ol>
+                            <li>(have some sources ready in folderA)</li>
+                            <li>Invoke New Project dialog and select HTML/JavaScript and HTML5 Application with existing sources</li>
+                            <li>Set Site Root to folderA</li>
+                            <li>Project name is set to "folderA"</li>
+                            <li>Default project directory is set to "folderA"</li>
+                            <li>Finish the dialog</li>
+                        </ol>
+                        <ul>
+                            <li>Result: New project is created. Site Root is set to "folderA" , Unit Tests to "test". Web Root is set to "/folderA". Right after project creation, you should resolve project's problem.</li>
+                        </ul>
+                    </li> 
+
+                    <li class="todo">Task: Resolve project problem I - III
+                        
+                    </li> 
+
+
+                    <li>Task: Create Project with existing sources II
+                        <ol>
+                            <li>(have some sources ready in path/folderA)</li>
+                            <li>Invoke New Project dialog and select HTML/JavaScript and HTML5 Application with existing sources</li>
+                            <li>Set Site Root to path/folderA</li>
+                            <li>Project name is set to "folderA"</li>
+                            <li>Default project directory set to some other directory, e.g. "path/projectName</li>
+                            <li>Finish the dialog</li>
+                        </ol>
+                        <ul>
+                            <li>Result: New project is created. Site Root is set to "folderA" (relative path), Unit Tests to "test". Web Root is set to "/projectName".</li>
+                        </ul>
+                    </li>
+                    <li>Task: Import AngularJS project
+                        <ol>
+                            <li>Extract archive from data/angular_struct.zip to some folder "folderA"</li>
+                            <li>In NetBeans, invoke New Project dialog and select HTML/JavaScript and HTML5 Application with existing sources</li>
+                            <li>Set Site Root to folderA/app</li>
+                            <li>Project name is set to "AngularJsApplication"</li>
+                            <li>Finish the dialog</li>
+                        </ol>
+                        <ul>
+                            <li>Result: New project is created. Site Root is set to "app" , Unit Tests to "test" and Configuration Files to "config"</li>
+                        </ul>
+                    </li> 
+                </ul>
+                <h4>Project settings</h4>
+                <div>
+                    You may use this applications for testing following cases. Just remember to revert them back :)
+                </div>
+                <ul>
+                    <li>Task: Site Root and Unit Tests folders
+                        <ol>
+                            <li>Go to Project Properties (right click on project) and select Sources category</li>
+                            <li>Modify Site Root</li>
+                            <li>Confirm changes</li>
+                        </ol>
+                        <ul>
+                            <li>Result: List of files under Site Root in Projects window is changed and contains only files from the selected Site Root. Repeat the same with Unit Tests folder. Node that this node is not displayed in Projects window if it doesn't contain any file</li>
+                        </ul>
+                    </li> 
+                    <li>Task: Main file to run
+                        <ol>
+                            <li>Go to Project Properties (right click on project)</li>
+                            <li>Change Start file </li>
+                            <li>Right click on project and select Run</li>
+                        </ol>
+                        <ul>
+                            <li>Result: Start file is opened in browser</li>
+                        </ul>
+                    </li> 
+                    <li>Task: Main file to run II
+                        <ol>
+                            <li>Go to Project Properties (right click on project)</li>
+                            <li>Change Start file to some non-existing file</li>
+                            <li>Right click on project and select Run</li>
+                        </ol>
+                        <ul>
+                            <li>Result: Warning message saying that main file to run cannot be found is opened. If you confirm the dialog, Project Properties dialog is opened and you can change it back</li>
+                        </ul>
+                    </li> 
+                    <li class="todo">Task: Server settings
+                        <ul>
+                            <li>Result: (not yet implemented) </li>
+                        </ul>
+                    </li> 
+                    <li>Task: Web root settings
+                        <ol>
+                            <li>Go to Project Properties (right click on project) and select Run category</li>
+                            <li>Change Web Root to e.g. "myweb"</li>
+                            <li>Right click on project and select Run</li>
+                        </ol>
+                        <ul>
+                            <li>Result: The project is running and URL contains e.g. localhost:8383/myweb/[startfile]</li>
+                        </ul>
+                    </li> 
+                    <li>Task: Remote files
+                        <ol>
+                            <li>Open this project in NetBeans</li>
+                            <li>In Projects window, there is a node called Remote Files, make sure it contains 3 files</li>
+                            <li>Modify some html file and add a new &lt;script&gt; tag with src attribute pointing to some URL address</li>
+                            <li>Save the file</li>
+                        </ol>
+                        <ul>
+                            <li>Result: Remote Files contains the new script. Try to open it in IDE, it should be read-only (see issue <a href="http://netbeans.org/bugzilla/show_bug.cgi?id=217664">217664</a>)</li>
+                        </ul>
+                    </li> 
+                    <li>Task: Browser settings
+                        <ol>
+                            <li>Go to Project Properties (right click on project) and select Run category</li>
+                            <li>By default (if you run in browser with NetBeans integration), Auto Refresh and Highlight Selection are enabled</li>
+                            <li>Change browser to some without NetBeans integration</li>
+                        </ol>
+                        <ul>
+                            <li>Result: The 2 options are no longer available</li>
+                        </ul>
+                    </li>
+                    <li id="refresh">Task: Auto Refresh
+                        <ol>
+                            <li>Go to Project Properties (right click on project) and select Run category</li>
+                            <li>Uncheck the Auto Refresh option</li>
+                            <li>Run some html file</li>
+                            <li>File is opened in browser, now edit it in IDE and save</li>
+                        </ol>
+                        <ul>
+                            <li>Result: File is not refreshed in browser</li>
+                        </ul>
+                    </li>
+                    <li>Task: Import JavaScript files
+                        <ol>
+                            <li>open Project Properties for some HTML5/JavaScript project</li>
+                            <li>Select JavaScript files category</li>
+                        </ol>
+                        <ul>
+                            <li>Result: There is a list of available JS libraries, make sure it all works the same as in New Project wizard. In the right column there is a list of already used JS files in the project and these files cannot be removed/altered from this dialog</li>
+                        </ul>
+                    </li>
+                </ul>
+                <img class="w80" src="images/libs.png" alt="JavaScript files"/>
+            </div>
+
+        </div><!-- container -->
+
+
+
+        <!-- JS
+        ================================================== -->
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script src="javascripts/tabs.js"></script>
+        <script src="js/custom.js"></script>
+
+
+
+    </body>
+</html>

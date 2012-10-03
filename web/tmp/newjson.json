@@ -1,0 +1,24 @@
+{   
+    "server":{
+        "runserver":true,
+        "usedb":true,
+        "webroot":"public",
+        "domain":"http://localhost",
+        "port" :1338,        
+       "cache_relative_path":"./cache/",
+       "slides_relative_path":"./public/data/slides/",
+       "atom_refresh_interval": "0 0 */2 * * *", 
+       "mm_lectures_interval": "0 * * * * *", 
+        "db_uri": "mongodb://localhost/humla",
+        "handlers_relative_path":"./handlers/",
+        "models_relative_path":"./models/"
+    },
+    "plugins": [
+        {"id":"administration","enable":true,"src":"./server_ext/administration/administration_ext.js"},
+        {"id":"slideindex","enable":true,"src":"./server_ext/slideindex/slideindex_ext.js"},
+        {"id":"atom","enable":true,"src":"./server_ext/atom/atom_module_ext.js"},
+        {"id":"maintenance","enable":true,"src":"./server_ext/maintenance/maintenance_lecture_ext.js"},
+        {"id":"gbooks","enable":true,"src":"./server_ext/gbooks/gbooks_ext.js"}
+    ],  
+    "models":[]
+}

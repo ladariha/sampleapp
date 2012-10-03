@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+
+        <meta charset="utf-8">
+        <title>NetBeans Testing Documentation</title>
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <!-- CSS
+  ================================================== -->
+        <link rel="stylesheet" href="stylesheets/base.css">
+        <link rel="stylesheet" href="stylesheets/skeleton.css">
+        <link rel="stylesheet" href="stylesheets/layout.css"> 
+        <link rel="stylesheet" href="stylesheets/custom.css">
+
+        <!--[if lt IE 9]>
+                <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+
+        <div class="container">
+            <div class="sixteen columns">
+                <div class="two columns">
+                    <img src="images/netbeans-logo.png"/>
+                </div>
+                <div class="thirteen columns">
+                    <h1 class="remove-bottom" style="margin-top: 40px">NetBeans Testing App</h1>
+                    <h5>NetBeans 7.3</h5>    
+                </div>
+
+                <hr />
+            </div>
+
+            <div class="two columns sidebar">
+                <nav>
+                    <h3 id="logo">Menu</h3>
+                    <ul id="menu">
+
+                    </ul>
+
+                </nav>
+                &nbsp;
+            </div>
+            <div class="thirteen columns offset-by-one content">
+                <h2>Easel work flow</h2>
+                <div>
+                    This section contains steps and links to specifications for expected work with Easel. 
+                    You should try it with both, Chrome and Embedded WebKit browser. Note that some terms or screens may differs from the build you are testing.
+                </div><br/>
+                <div>
+                    For testing purposes, use (<a href="sample/debugger.html">link</a>)
+                    <pre>
+/sample/debugger.html</pre>
+                </div>
+                <h4> Getting ready </h4>
+                <ul style="list-style: circle">
+                    <li>test Chrome extension, follow these <a href="chrome.html">instructions</a></li>
+                    <li>Get to know Embedded browser, read and try these <a href="fx.html">instructions</a></li>
+                    <li>try basic operations with client side project, follow these <a href="project.html">instructions</a></li>
+                </ul>
+                <h4>Run</h4>
+                <ul style="list-style: circle">
+                    <li>      
+                        Run the page from IDE. Default configuration should be set to Embedded WebKit browser. This browser opens below 
+                        your editor area in NetBeans. If you choose to run it in Chrome, new tab is opened and you can see NetBeans icon in Omnibar and message that
+                        NetBeans plugin is debugging this tab.
+                    </li>
+                    <li>
+                        When the page is running, you can see that Navigator window has colored icons, CSS Styles and Rule Editor are opened
+                    </li>
+                    <li>
+                        If not already, open Output window which should contain 2 tabs: WebKit Protocol and Browser log which prints logging from JavaScript (either triggered via console object or errors and stacktraces)
+                    </li>
+                
+                    <li>Navigator DOM features, follow these <a href="dom.html">instructions</a></li></ul>
+                <h4>"Life" editing</h4>
+                <ul style="list-style: circle">
+                    <li>try Selection Mode as described at <a href="selection.html">Selection section</a></li>
+                    <li>try to edit css styles of a running file, follow these <a href="css.html#lifeediting">instructions</a></li>
+                    <li>try to edit HTML file as such while it is running, follow these <a href="html.html#lifeediting">instructions</a></li>
+                    <li>try to change Auto Refresh settings, see <a href="project.html#refresh">instructions</a></li>
+                </ul>
+                <h4>"Offline" editing</h4>
+                <ul style="list-style: circle">
+                    <li>test <a href="javascript.html">JavaScript editor</a></li>
+                    <li>test <a href="css.html#offline">CSS editor</a></li>
+                    <li>test <a href="html.html#offline">HTML editor</a></li>
+                </ul>
+                <h4>Debugging JavaScript code</h4>
+                <ul style="list-style: circle">
+                    <li>try to debug JavaScript code, follow these <a href="debugger.html">instructions</a></li>
+                </ul>
+                 <h4>JavaScript unit tests</h4>
+                <ul style="list-style: circle">
+                    <li>try to run JavaScript unit tests, follow these <a href="tests.html">instructions</a></li>
+                </ul>
+            </div>
+
+        </div><!-- container -->
+
+
+
+        <!-- JS
+        ================================================== -->
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script src="javascripts/tabs.js"></script>
+        <script src="js/custom.js"></script>
+
+
+
+    </body>
+</html>

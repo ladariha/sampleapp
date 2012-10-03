@@ -1,0 +1,658 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+
+        <meta charset="utf-8">
+        <title>NetBeans Testing Documentation</title>
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <!-- CSS
+  ================================================== -->
+        <link rel="stylesheet" href="stylesheets/base.css">
+        <link rel="stylesheet" href="stylesheets/skeleton.css">
+        <link rel="stylesheet" href="stylesheets/layout.css"> 
+        <link rel="stylesheet" href="stylesheets/custom.css">
+        <script src="js/libs/syntaxhighlighter/scripts/shCore.js"></script>
+        <script src="js/libs/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+        <link rel="stylesheet" type="text/css" href="js/libs/syntaxhighlighter/styles/shCore.css"/>
+        <link rel="stylesheet" type="text/css" href="js/libs/syntaxhighlighter/styles/shThemeDefault.css"/>
+
+
+
+        <!--[if lt IE 9]>
+                <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+
+        <div class="container">
+            <div class="sixteen columns">
+                <div class="two columns">
+                    <img src="images/netbeans-logo.png"/>
+                </div>
+                <div class="thirteen columns">
+                    <h1 class="remove-bottom" style="margin-top: 40px">NetBeans Testing App</h1>
+                    <h5>NetBeans 7.3</h5>    
+                </div>
+
+                <hr />
+            </div>
+
+            <div class="two columns sidebar">
+                <nav>
+                    <h3 id="logo">Menu</h3>
+                    <ul id="menu">
+
+                    </ul>
+
+                </nav>
+                &nbsp;
+            </div>
+            <div class="thirteen columns offset-by-one content">
+                <h2>JavaScript Editor</h2>
+                <h3>Coloring</h3>
+                <ul style="list-style: circle;">
+                    <li>Task: Basic coloring
+                        <ol>
+                            <li> Copy following JS code to JavaScript file</li></ol><ul>
+                            <li>Result: Coloring is the same as on image below. </li>
+                        </ul>
+                    </li>
+                </ul>
+                <pre class="brush: js">
+var globalVariable = "Text";       // global variables are not green now
+ 
+ var globalObject = {
+     property1: 10,                 // simple properties are green
+     property2: "text",
+     property3: {                   // object definition is black and bold
+         anotherProperty: "10"
+     },
+     method1: function () {         // method name in definition is bold
+         return this.property1;     // again simple proeprty are green
+     }
+ };
+ 
+ (function () {
+     var space = space || {};       // object definition out of the global space
+     
+     function test() {              // function name is also bold
+         var privatevar = 10;       
+         return privatevar;
+     }
+ })();
+                </pre>
+                <img class="w70" src="images/coloring.png" alt="JavaScript coloring"/>
+                <ul style="list-style: circle;">
+                    <li>Task: Basic coloring - JSON
+                        <ol>
+                            <li> Copy following code to JSON file</li></ol><ul>
+                            <li>Result: Coloring is the same as on image below. </li>
+                        </ul>
+                    </li>
+                </ul>
+                <pre class="brush: js">
+{   
+    "server":{
+        "runserver":true,
+        "usedb":true,
+        "webroot":"public",
+        "domain":"http://localhost",
+        "port" :1338,        
+       "cache_relative_path":"./cache/",
+       "slides_relative_path":"./public/data/slides/",
+       "atom_refresh_interval": "0 0 */2 * * *", 
+       "mm_lectures_interval": "0 * * * * *", 
+        "db_uri": "mongodb://localhost/humla",
+        "handlers_relative_path":"./handlers/",
+        "models_relative_path":"./models/"
+    },
+    "plugins": [
+        {"id":"administration","enable":true,"src":"./server_ext/administration/administration_ext.js"},
+        {"id":"slideindex","enable":true,"src":"./server_ext/slideindex/slideindex_ext.js"},
+        {"id":"atom","enable":true,"src":"./server_ext/atom/atom_module_ext.js"},
+        {"id":"maintenance","enable":true,"src":"./server_ext/maintenance/maintenance_lecture_ext.js"},
+        {"id":"gbooks","enable":true,"src":"./server_ext/gbooks/gbooks_ext.js"}
+    ],  
+    "models":[]
+}
+                </pre>
+                <img class="w80" src="images/json.png" alt="JSON coloring"/>
+                <br/>
+
+
+                <h3>General</h3>
+
+                <ul style="list-style: circle;">
+                    <li>Task: Code folding
+                        <ol>
+                            <li> download and open <a href="http://www.prototypejs.org/download">prototype.js</a> file in the editor</li>
+                            <li>call View|Code Folds|Collapse All</li>
+                            <li>move mouse cursor over folded method and see hidden code</li>
+                            <li>call View|Code Folds|Expand All and check all is expanded</li>
+                            <li>collapse or expand fold in editor clicking plus or minus sign</li>
+                        </ol><ul>
+                            <li>Result: Everything works</li>
+                        </ul>
+                    </li>
+                    <li>Task: Bracket matching
+                        <ol>
+                            <li> check that editor automatically highlights matching parentheses, braces, brackets, string delimiters, regular expression delimiters, etc.</li>
+                            <li>type ( , automaticaly () is written, if you type closing ) , it removes the previous )</li>
+                            <li>that works for { too - issue 195515</li>
+                        </ol><ul>
+                            <li>Result: Everything works </li>
+                        </ul>
+                    </li>
+                    <li>Task: Formatting
+                        <ol>
+                            <li> open prototype.js or any other .js file</li>
+                            <li>break formatting as you wish (e.g. press CTRL+A and then Shift+Tab several times)</li>
+                            <li>call Format context menu in editor (Alt+Shift+F)</li>
+                        </ol><ul>
+                            <li>Result: Everything works  </li>
+                        </ul>
+                    </li>
+                    <li>Task: Formatting II - minimized file
+                        <ol>
+                            <li> open tests/js/jquery-1.7.1.min.js</li>
+                            <li>call Format context menu in editor (Alt+Shift+F)</li>
+                        </ol><ul>
+                            <li>Result: Everything works  </li>
+                        </ul>
+                    </li>
+                    <li>Task: JSON Formatting
+                        <ol>
+                            <li> use the JSON source above and paste it to NetBeans to JSON file</li>
+                            <li>press Ctrl+A and then Tab several times so the code is shifted</li>
+                            <li>call Format context menu in editor (Alt+Shift+F)</li>
+                        </ol><ul>
+                            <li>Result: JSON is formatted correctly</li>
+                        </ul>
+                    </li>
+                    <li>Task: Color of regular expression
+                        <ol>
+                            <li> Check that following expression is in purple in editor</li>
+                        </ol><ul>
+                            <li>Result: Everything works</li>
+                        </ul>
+                    </li>
+                </ul>
+                <pre class="brush: js">
+var reg = /reg/;
+                </pre>
+                <br/>
+
+                <h3>Code completion</h3>
+                Open file
+                <pre>tests/js/complexcc.js</pre> and follow instructions there. Each instruction is in comment that starts with 
+                <pre>
+// TASK
+// a|                </pre> <div> This means you have to uncomment the line with "|", remove this character and invoke code completion</div><br/>
+                <h3>Hints</h3>
+                You can either copy following snippets or look at file 
+                <pre>tests/js/hints.js</pre>
+                <ul style="list-style: circle;">
+                    <li>Task: Suspicious comparison
+                        <ol>
+                            <li> Copy following JS code to JavaScript file</li></ol><ul>
+                            <li>Result: Editor shows hint about usage of "==". </li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <pre class="brush: js">
+ if (a == b) {
+     a = 0;
+ }
+                </pre>
+                <ul style="list-style: circle;">
+                    <li>Task: Missing semicolon
+                        <ol>
+                            <li> Copy following JS code to JavaScript file</li></ol><ul>
+                            <li>Result: Editor shows hint about missing semicolon. </li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <pre class="brush: js">
+ var X = {
+     first: 10,
+     second: 'text'
+ }
+                </pre>
+                <ul style="list-style: circle;">
+                    <li>Task: Incorrect comma
+                        <ol>
+                            <li> Copy following JS code to JavaScript file</li></ol><ul>
+                            <li>Result: Editor shows hint about incorrect comma character. </li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <pre class="brush: js">
+ var y = {
+     first: 20,
+     third: 30,
+ };
+                </pre>
+                <ul style="list-style: circle;">
+                    <li>Task: Weird assignment
+                        <ol>
+                            <li> Copy following JS code to JavaScript file</li></ol><ul>
+                            <li>Result: Editor shows hint about weird assignment. </li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <pre class="brush: js">
+while (a = b) {
+    a++;
+}
+                </pre>
+                <ul style="list-style: circle;">
+                    <li>Task: Duplicate name of a property
+                        <ol>
+                            <li> Copy following JS code to JavaScript file</li></ol><ul>
+                            <li>Result: Editor shows hint about duplicate name of a property. (see issue <a href="http://netbeans.org/bugzilla/show_bug.cgi?id=217078">217078</a>) </li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <pre class="brush: js">
+ var z = {
+    first: "10",
+    second: "text",
+    first: 10
+ };
+                </pre>  
+                
+         <ul style="list-style: circle;">
+                    <li>Task: Incorrect jsDoc documentation I
+                        <ol>
+                            <li> Copy following JS code to JavaScript file</li></ol><ul>
+                            <li>Result: Editor shows hint about incorrect documentation for parameter foo. </li>
+                        </ul>
+                    </li>
+
+                </ul>  
+                <pre class="brush: js">
+/**
+ * Incorrect Documentation due to parameter called foo
+ * @param {type} param1
+ * @param {type} foo
+ * @returns {undefined}
+ */
+function test(param1){
+    
+}
+                </pre>
+                
+                 <ul style="list-style: circle;">
+                    <li>Task: Incorrect jsDoc documentation II
+                        <ol>
+                            <li> Copy following JS code to JavaScript file</li></ol><ul>
+                            <li>Result: Editor shows hint about missing documentation for parameter param2. </li>
+                        </ul>
+                    </li>
+
+                </ul>  
+                <pre class="brush: js">
+/**
+ * Parameter param2 not documented
+ * @param {type} param1
+ * @returns {undefined}
+ */
+function test2(param1, param2){
+    
+}
+                </pre>
+                <h3>jQuery</h3>
+                To test jQuery, you can use <pre>tests/js/jquery.js</pre>
+                <ul style="list-style: circle;">
+                    <li>Task: jQuery methods
+                        <ol>
+                            <li> Copy following JS code to JavaScript file and invoke cc after "."</li></ol><ul>
+                            <li>Result: Code completion offers jQuery methods together with help window. (see issue <a href="http://netbeans.org/bugzilla/show_bug.cgi?id=216131">216131</a>) </li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <pre class="brush: js">
+$(document).
+                </pre>  
+                <ul style="list-style: circle;">
+                    <li>Task: jQuery chained methods
+                        <ol>
+                            <li> Copy following JS code to JavaScript file and invoke cc after "."</li></ol><ul>
+                            <li>Result: Code completion offers jQuery methods together with help window. </li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <pre class="brush: js">
+$(document).find('a').
+                </pre>
+                <ul style="list-style: circle;">
+                    <li>Task: jQuery selector completion I
+                        <ol>
+                            <li> Copy following JS code and invoke cc inside quotes</li></ol><ul>
+                            <li>Result: Code completion offers list of css ids and classes. </li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <pre class="brush: js">
+$(document).find('')
+                </pre>
+                <ul style="list-style: circle;">
+                    <li>Task: jQuery selector completion II
+                        <ol>
+                            <li> Copy following JS code and invoke cc inside quotes</li></ol><ul>
+                            <li>Result: Code completion offers list of jQuery selectors. </li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <pre class="brush: js">
+$(document).find(':')
+                </pre>
+                <ul style="list-style: circle;">
+                    <li>Task: jQuery selector completion III
+                        <ol>
+                            <li> Copy following JS code and invoke cc inside quotes</li></ol><ul>
+                            <li>Result: Code completion offers list classes</li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <pre class="brush: js">
+$(document).find('a#foo.')
+                </pre>
+                <ul style="list-style: circle;">
+                    <li>Task: jQuery selector completion IV
+                        <ol>
+                            <li> Copy following JS code and invoke cc inside []</li></ol><ul>
+                            <li>Result: Code completion offers list of HTML attributes (see issue <a href="http://netbeans.org/bugzilla/show_bug.cgi?id=217019">217019</a>)
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <pre class="brush: js">
+$(document).find('td[]')
+                </pre>
+
+                <ul style="list-style: circle;">
+                    <li>Task: jQuery hyperlinking to CSS rule
+                        <ol>
+                            <li> Copy following JS code and Ctrl+Click on the rule in quotes</li>
+
+                        </ol><ul>
+                            <li>Result: Appropriate css file with given rule is opened. (note tested due issue <a href="https://netbeans.org/bugzilla/show_bug.cgi?id=217494">217494</a>)</li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <pre class="brush: js">
+$(".test").find('td[]')
+                </pre>
+                <br/>
+                <h3>Documentation</h3>
+                <ul  style="list-style: circle;">
+                    <li>continue <a href="doc.html">here</a></li>
+                    <li class="todo">Work in progress</li>
+                    <li>
+                        <a href="jsdoc.html">References</a>
+                    </li>
+                </ul>
+                <h3>Navigator window</h3>
+                <ul style="list-style: circle;">
+                    <li>Task: Navigator
+                        <ol>
+                            <li>Open tests/js/complexcc.js in IDE</li></ol><ul>
+                            <li>Result: Navigator window looks the same as on the picture below
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <img src="images/navigator.png" alt="Navigator window"/>
+                <ul style="list-style: circle;">
+                    <li>Task: Navigator basic interaction
+                        <ol>
+                            <li>Try to double click on some item in Navigator. The appropriate code should be opened in IDE</li>
+                            <li>Try to sort items in Navigator</li>
+                            <li>Filters - see issue <a href="http://netbeans.org/bugzilla/show_bug.cgi?id=148279">148279</a></li>
+                        </ol><ul>
+                            <li>Result: Everything works (see issue <a href="http://netbeans.org/bugzilla/show_bug.cgi?id=216855">216855</a>)
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Task: New items in Navigator
+                        <ol>
+                            <li>Create new variable for example: var myvar=new Date();</li>
+                            <li>Declare new function</li>
+                        </ol><ul>
+                            <li>Result: Changes in source are propagated into Navigator
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <h3 class="todo">Custom colors in editor</h3>
+                <h3>Custom formatting in editor</h3>
+                <ul  style="list-style: circle;">
+                    <li>Task: Wrapping
+                        <ol>
+                            <li>Use the code below</li>
+                            <li>Go To Tools|Options|Editor|Formatting, select JavaScript and Wrapping</li>
+                            <li>Change Variables wrapping to always</li>
+                            <li>Confirm changes and format the code</li>
+                        </ol><ul>
+                            <li>Result: Formatted code looks like below
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                Wrapping: before
+                <pre class="brush: js">
+var a,b,c,x = function() {
+    return "yes"
+}</pre>
+                Wrapping: after
+                <pre class="brush: js">
+var a,
+        b,
+        c,
+        x = function() {
+    return "yes"
+}</pre>
+                <ul style="list-style: circle">
+                    <li>Task: Tabs and Indents
+                        <ol>
+                            <li>Use the code below</li>
+                            <li>Go To Tools|Options|Editor|Formatting, select JavaScript and Tabs and Indents</li>
+                            <li>Set Tab Size to 4 and Number of Spaces per Indent to 2</li>
+                            <li>Confirm changes and format the code</li>
+                            
+                        </ol><ul>
+                            <li>Result: Mark occurrences work
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                Tabs And Indents: Before
+                <pre class="brush: js">
+var a = {
+    log : function() {
+    }
+}</pre>
+                Tabs And Indents: After
+                <pre class="brush: js">
+var a = {
+  log : function() {
+  }
+}</pre>
+                <ul style="list-style: circle">
+                    <li>Task: Spaces
+                        <ol>
+                            <li>Use the code below</li>
+                            <li>Go To Tools|Options|Editor|Formatting, select JavaScript and Spaces</li>
+                            <li>Uncheck "Before Parentheses" for "catch"</li>
+                            <li>Uncheck "Other" for "After Comma"</li>
+                            <li>Confirm changes and format the code</li>
+                        </ol><ul>
+                            <li>Result: Formatted code looks like below
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                Spaces: Before
+                <pre class="brush: js">
+try {
+    c = [1, 2, 3]
+} catch (e) {
+
+}</pre>
+                Spaces: After
+                <pre class="brush: js">
+try {
+    c = [1,2,3]
+} catch(e) {
+
+}</pre>
+                <h3>Refactoring</h3>
+                <div>
+                    Currently, NetBeans supports Instant Rename (in a single file). To use it, place your cursor inside the
+                    identifier you'd like to rename and press Ctrl+R.
+                </div>
+                <div>
+                    Open following file and look for "TASK" which tells you what to rename. Make sure that appropriate identifiers are renamed.
+                    Test file:
+                    <pre>
+tests/js/refactor.js</pre>
+                    Test file 2:
+                    <pre>
+tests/js/refactor2.js</pre>
+                </div>
+                <h3>Mark occurrences</h3>
+                <pre class="brush: js">
+var facet_ext = require('../server_ext/facet/facetengine_ext.js'); // TEST - facet_ext
+var querystring = require('querystring');
+
+app.get('/search/query/:schemakey', function(req, res){ // TEST - req and res
+    var page = querystring.parse(require('url').parse(req.url).query)['page'];
+    var baseUrl = req.headers.host+req.url+"";
+    if(baseUrl.lastIndexOf("?",0)>-1)
+        baseUrl  = baseUrl.substring(0, baseUrl.lastIndexOf("?",0));
+    if(typeof page === "undefined"){
+        page =1;
+    }else{
+        page = parseInt(page);
+        if(page<1)
+            page=1;
+    }
+    facet_ext.simpleQuery(decodeURIComponent(req.params.schemakey),"", res);
+});
+
+function Foo(name){ // TEST - name; result 2 occurrences
+this.name = name;
+}
+
+var name = 1; // TEST - name; nothing is highlighted
+
+var f = new Foo("bar");
+console.log(f.name); // TEST - name in Foo() is highlighted
+
+var g = {
+ "name": "FooBar"
+};
+
+console.log(g.name);// TEST - name in "g" is highlighted
+                </pre>
+                <ul  style="list-style: circle;">
+                    <li>Task: Mark occurrences
+                        <ol>
+                            <li>Use the code above</li>
+                            <li>try mark occurrences for each comment TEST followed by name of the property to be tested</li>
+                        </ol><ul>
+                            <li>Result: Mark occurrences work
+                            </li>
+                        </ul>
+                    </li>
+                </ul> 
+                <h3>Templates</h3>
+                <pre class="brush: js">
+/**
+ * 
+ */
+var a ={
+    
+};</pre>
+                <ul  style="list-style: circle;">
+
+                    <li>Task: Built-in templates 
+                        <ol>
+                            <li>Use the code above and type "prf" on the blank line between "{" and "}"</li>
+                            <li>Press Tab</li>
+                        </ol><ul>
+                            <li>Result: Code is expanded, the result is on the image below. Repeat the same with embedded JS code in HTML fileah
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul> 
+                <img src="images/tmpl.png" alt="Expanded template"/>
+                <ul  style="list-style: circle;">
+
+                    <li>Task: Custom templates 
+                        <ol>
+                            <li>Go to Tools|Options|Editor|Code Templates and select JavaScript from Language combo box</li>
+                            <li>Create your own template</li>
+                            <li>Try to use the new template in JavaScript file</li>
+                        </ol><ul>
+
+                            <li>Result: Code is expanded
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Task: Documentation templates 
+                        <ol>
+                            <li>Again, use the code above, now place cursor on the 2nd line with asterisk</li>
+                            <li>type "au" and press tab</li>
+                        </ol><ul>
+
+                            <li>Result: Template is expanded and @author is inserted
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul> 
+            </div>
+
+        </div><!-- container -->
+
+
+
+        <!-- JS
+        ================================================== -->
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script src="javascripts/tabs.js"></script>
+        <script src="js/custom.js"></script>
+
+        <script type="text/javascript">
+            SyntaxHighlighter.defaults['gutter'] = false;
+            SyntaxHighlighter.all()
+        </script>
+
+    </body>
+</html>

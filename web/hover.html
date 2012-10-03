@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en"> 
+    <!--<![endif]-->
+    <head>
+
+        <meta charset="utf-8">
+        <title>NetBeans Testing Documentation</title>
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+        <!-- CSS
+  ================================================== -->
+        <link rel="stylesheet" href="stylesheets/base.css">
+        <link rel="stylesheet" href="stylesheets/skeleton.css">
+        <link rel="stylesheet" href="stylesheets/layout.css"> 
+        <link rel="stylesheet" href="stylesheets/custom.css">
+        <link rel="stylesheet" type="text/css" href="ddsmoothmenu.css" />
+        <link rel="stylesheet" type="text/css" href="ddsmoothmenu-v.css" />
+
+
+        <!--[if lt IE 9]>
+                <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+
+        <div class="container">
+            <div class="sixteen columns">
+                <div class="two columns">
+                    <img src="images/netbeans-logo.png"/>
+                </div>
+                <div class="thirteen columns">
+                    <h1 class="remove-bottom" style="margin-top: 40px">NetBeans Testing App</h1>
+                    <h5>NetBeans 7.3</h5>    
+                </div>
+
+                <hr />
+            </div>
+
+            <div class="two columns sidebar">
+                <nav>
+                    <h3 id="logo">Menu</h3>
+                    <ul id="menu">
+
+                    </ul>
+
+                </nav>
+                &nbsp;
+            </div>
+            <div class="thirteen columns offset-by-one content">
+                <h3>Hover</h3>
+                <ul style="list-style: circle;">
+                    <li>This is for JavaFX browser only. Try to hover over the "Folder" link, dropdown menu should be displayed. Press Ctrl+Shift+S to "freeze" it and check what happens</li>
+                </ul>
+
+                <div id="smoothmenu1" class="ddsmoothmenu">
+                    <ul>
+
+
+
+                        <li><a href="#">Folder</a>
+                            <ul>
+                                <li><a href="#">Sub Item 2.1</a></li>
+                                <li><a href="#">Folder 2.1</a>
+                                    <ul>
+                                        <li><a href="#">Sub Item 2.1.1</a></li>
+                                        <li><a href="#">Sub Item 2.1.2</a></li>
+                                        <li><a href="#">Folder 3.1.1</a>
+                                            <ul>
+                                                <li><a href="#">Sub Item 3.1.1.1</a></li>
+                                                <li><a href="#">Sub Item 3.1.1.2</a></li>
+                                                <li><a href="#">Sub Item 3.1.1.3</a></li>
+                                                <li><a href="#">Sub Item 3.1.1.4</a></li>
+                                                <li><a href="#">Sub Item 3.1.1.5</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Sub Item 2.1.4</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <br style="clear: left" />
+                </div>
+
+
+
+
+            </div>
+
+        </div><!-- container -->
+
+
+
+        <!-- JS
+        ================================================== -->
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script src="javascripts/tabs.js"></script>
+        <script src="js/custom.js"></script>
+
+
+        <script type="text/javascript" src="js/libs/ddsmoothmenu.js">
+
+            /***********************************************
+* Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+        </script>
+
+        <script type="text/javascript">
+
+            ddsmoothmenu.init({
+                mainmenuid: "smoothmenu1", //menu DIV id
+                orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+                classname: 'ddsmoothmenu', //class added to menu's outer DIV
+                //customtheme: ["#1c5a80", "#18374a"],
+                contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+            })
+
+            ddsmoothmenu.init({
+                mainmenuid: "smoothmenu2", //Menu DIV id
+                orientation: 'v', //Horizontal or vertical menu: Set to "h" or "v"
+                classname: 'ddsmoothmenu-v', //class added to menu's outer DIV
+                //customtheme: ["#804000", "#482400"],
+                contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+            })
+
+        </script>
+    </body>
+</html>

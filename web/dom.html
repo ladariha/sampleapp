@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+
+        <meta charset="utf-8">
+        <title>NetBeans Testing Documentation</title>
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <!-- CSS
+  ================================================== -->
+        <link rel="stylesheet" href="stylesheets/base.css">
+        <link rel="stylesheet" href="stylesheets/skeleton.css">
+        <link rel="stylesheet" href="stylesheets/layout.css"> 
+        <link rel="stylesheet" href="stylesheets/custom.css">
+
+        <!--[if lt IE 9]>
+                <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+
+        <div class="container">
+            <div class="sixteen columns">
+                <div class="two columns">
+                    <img src="images/netbeans-logo.png"/>
+                </div>
+                <div class="thirteen columns">
+                    <h1 class="remove-bottom" style="margin-top: 40px">NetBeans Testing App</h1>
+                    <h5>NetBeans 7.3</h5>    
+                </div>
+
+                <hr />
+            </div>
+
+            <div class="two columns sidebar">
+                <nav>
+                    <h3 id="logo">Menu</h3>
+                    
+                    
+                    
+                  <ul id="menu">
+                        
+                        
+                    </ul>
+
+                </nav>
+                &nbsp;
+            </div>
+            <div class="thirteen columns offset-by-one content">
+                <h2>Navigator and DOM interaction</h2>
+                <h3>General</h3>
+                <ul style="list-style: circle;">
+                    <li>Task: Hover over some item in Navigator
+                        <ul>
+                            <li>Result: Element is highlighted in browser</li>
+                        </ul>
+                    </li>  
+                     <li>Task: Turn Select Mode on and click on some item in Navigator
+                        <ul>
+                            <li>Result: Element stays highlighted after you hover over another element. The second element is also highlighted but with lighter color</li>
+                        </ul>
+                    </li>
+                    <li>Task: Click on some item in Navigator
+                        <ul>
+                            <li>Result: Properties window shows properties for given element. CSS Styles window is populated </li>
+                        </ul>
+                    </li>
+                    <li>Task: Check Navigator window with some elements that have class and id attribute
+                        <img class="w90" src="images/flow1.png" alt="Navigator window"/>
+                        <ul>
+                            <li>Result: Values of class & id attribute are appended to the node name. Dynamically added and removed elements are marked differently (use sample/debugger.html to try it - menu is loaded dynamically and you can try to remove some list item onclick) than static elements</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="context">Context menu</h3>
+                <ul style="list-style: circle;">
+                     <li>Task: Run file and right click on some DOM element in Navigator
+                        <ul>
+                            <li>Result: Following actions are available: Go To Source, Modify rules, Delete, Select in Browser and 3 checkboxes for breakpoints: On Subtree modifications, On Attribute Modifications and On Node removal. </li>
+                        </ul>
+                    </li>
+                     <li>Task: Select element in Navigator and choose Go To Source action
+                        <ul>
+                            <li>Result: Editor is opened with given file and cursor is at the selected element </li>
+                        </ul>
+                    </li>
+                    <li>Task: Select element in Navigator and choose Modify Rules action
+                        <ul>
+                            <li>Result: Dialog similar to the one below is opened. You can modify ID and class attribute, change is in green if the identifier will be created or in bold black if it exists in given css file. If you're removing rule, the change is crossed. If you select some style sheet using the combo box then list of identifiers offers only identifiers from the selected css file and At Rule shows media queries from the css file (TODO). Try to create a new rule in css file</li>
+                        </ul>
+                        <img src="images/modify.png" alt="Modify Rules window"/>
+                    </li>
+                    <li>Task: Select element in Navigator and choose Modify Rules action II - new rule inside media query
+                        <ul>
+                            <li>Result: Invoke Modify Rules again and as a css file choose skeleton.css. List of media queries is offered, select some and create a new rule. Make sure that the rule is inserted at the correct position</li>
+                        </ul>
+                    </li>
+                    <li>Task: Select element in Navigator and choose Modify Rules action III - remove rule
+                        <ul>
+                            <li>Result: Invoke Modify Rules again and remove all rules. The selected element does not have any rules attached. Check this in editor</li>
+                        </ul>
+                    </li>
+                    <li>Task: Select element in Navigator and choose Delete
+                        <ul>
+                            <li>Result: Selected element is removed from html source</li>
+                        </ul>
+                    </li>
+                    <li>Task: Start Select Mode, select element in Navigator and choose Select in Browser
+                        <ul>
+                            <li>Result: Selected element is highlighted in browser</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Load page to iframe</h3>
+                <ul style="list-style: circle;">
+                    <li>After loading some (external) URL, Navigator should reflect these new elements and display them in proper position</li>
+                    <li>Check that you can select elements inside the iframe document in Navigator Window and that after this selection the element is highlighted in browser (so far it doesn't work in opposite direction - you cannot select particular elements inside iframe in Selection Mode in browser) </li>
+                </ul>
+                URL:<input type="text" id="url" value="http://netbeans.org"/><input type="button" value="Load Page" onclick="loadPage()"/>
+                <div id="frame">
+                     
+                </div>
+                
+                <h3>Dynamically create external JS script</h3>
+                <ul style="list-style: circle;">
+                    <li>This button adds &lt;script&gt; tag with external script (http://netbeans.org/images_www/js/switcher.js). Should it be loaded in Remote Files?</li>
+                    <li>After clicking the button, confirmation dialog is opened</li>
+                    <li>Check <a href="http://netbeans.org/bugzilla/show_bug.cgi?id=216421">issue #216421</a> to see if it should even work :)</li>
+                </ul>
+                <input type="button" value="Create script" onclick="loadScript('http://netbeans.org/images_www/js/switcher.js')"/>
+                
+
+            </div>
+
+        </div>
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script src="javascripts/tabs.js"></script>
+        <script id="emptyScript" src=""></script>
+          <script src="js/custom.js"></script>
+         
+          
+        <script>
+
+        function loadPage(){
+            var page = $("#url").attr("value");
+            $("#frame").html("<iframe style=\"width:100%; height:800px;\" src=\""+page+"\"></iframe>");
+        }
+        function loadScript(src){
+            $("#emptyScript").attr("src", src);
+            // because following breaks editor - #216420
+            // $("document").append("<script src='"+src+"'>< /script>");
+            alert("Done, script added");
+        }
+
+        </script>
+
+    </body>
+</html>

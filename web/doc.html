@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+
+        <meta charset="utf-8">
+        <title>NetBeans Testing Documentation</title>
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <!-- CSS
+  ================================================== -->
+        <link rel="stylesheet" href="stylesheets/base.css">
+        <link rel="stylesheet" href="stylesheets/skeleton.css">
+        <link rel="stylesheet" href="stylesheets/layout.css"> 
+        <link rel="stylesheet" href="stylesheets/custom.css">
+        <script src="js/libs/syntaxhighlighter/scripts/shCore.js"></script>
+        <script src="js/libs/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+        <link rel="stylesheet" type="text/css" href="js/libs/syntaxhighlighter/styles/shCore.css"/>
+        <link rel="stylesheet" type="text/css" href="js/libs/syntaxhighlighter/styles/shThemeDefault.css"/>
+        <!--[if lt IE 9]>
+                <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+
+        <div class="container">
+            <div class="sixteen columns">
+                <div class="two columns">
+                    <img src="images/netbeans-logo.png"/>
+                </div>
+                <div class="thirteen columns">
+                    <h1 class="remove-bottom" style="margin-top: 40px">NetBeans Testing App</h1>
+                    <h5>NetBeans 7.3</h5>    
+                </div>
+
+                <hr />
+            </div>
+
+            <div class="two columns sidebar">
+                <nav>
+                    <h3 id="logo">Menu</h3>
+                    <ul id="menu">
+
+                    </ul>
+
+                </nav>
+                &nbsp;
+            </div>
+            <div class="thirteen columns offset-by-one content">
+                <h2>JavaScript documentation support</h2>
+                <h3>Coloring</h3>
+                Copy following code and make sure that it looks like in the image below
+                <pre class="brush: js">
+/**
+ * Create a new Hexagon instance.
+ * @extends Shape
+ * @class Hexagon is a class that is a <i>logical</i> sublcass of
+ * {@link Shape} (thanks to the <code>&#64;extends</code> tag), but in
+ * reality it is completely unrelated to Shape.
+ * @param {int} sideLength The length of one side for the new Hexagon
+ * @example
+ * var h = new Hexagon(2);
+ * @return {Hexagon} description
+ */
+function Hexagon(sideLength) {
+
+}
+
+
+/**
+ * This is an unattached (static) function that adds two integers together.
+ * @param {int} One The first number to add
+ * @param {int} Two The second number to add
+ * @author Gabriel Reid
+ * @deprecated So you shouldn't use it anymore! Use {@link Shape#getClassName} instead.
+ */
+function Add(One, Two) {
+    return One + Two;
+}
+                </pre>
+                <img class="w80" src="images/doc.png" alt="Documentation coloring"/>
+                <br/><h3>@type</h3>
+                <pre class="brush: js">
+/**
+ * 
+ * @type Bar
+ */
+function foo(){}
+                </pre>
+                <ul style="list-style: circle">
+                    <li>Task: @type for functions
+                        <ol>
+                            <li>Copy & Paste the code above</li>
+                        </ol>
+                        <ul>
+                            <li>Result: Make sure that Navigator and code completion show Bar as returned type</li>
+                        </ul>
+                    </li>  
+                </ul>
+                       <pre class="brush: js">
+/**
+var d;
+                </pre>         
+                <ul style="list-style: circle">
+                    <li>Task: @type for variables
+                        <ol>
+                            <li>Copy & Paste the code above</li>
+                            <li>Place cursor at the end of the line with 2 asterisks and hit Enter</li>
+                            <li>Rest of @type annotation is completed</li>
+                            <li>change "type" to "Date"</li>
+                        </ol>
+                        <ul>
+                            <li>Result: Navigator and code completion show Bar as variable type. Invoke code completion for "d." and make sure that members of Date are offered </li>
+                        </ul>
+                    </li>  
+                </ul>
+                <br/>
+                <h3>Class recognition</h3>
+                 Use following code:
+                <pre class="brush: js">
+/**
+ * @class
+ */
+function TestA(){}
+
+/**
+ * @constructor
+ */
+function TestB() {}
+
+/**
+ * @constructs
+ */
+function TestC() {}
+                </pre>
+                 
+                 <ul style="list-style: circle">
+                    <li>Task: Class recognition
+                        <ol>
+                            <li>Paste the code above to JS file</li>
+                        </ol>
+                        <ul>
+                            <li>Result: All functions are recognized as "classes" (constructors) in Navigator window (they have the yellow diamond icon)</li>
+                        </ul>
+                    </li>  
+                </ul>
+                 
+                <h3>Autogenerating documentation</h3>
+                Use following code:
+                <pre class="brush: js">
+/**
+function print(value, pretty) {
+    if (pretty)
+        return "&lt;h1&gt;" + value + "&lt;/h1&gt;";
+    else
+        return 0;
+}</pre>
+                and press Enter after the "/**". The result should look like
+                <pre>
+/**
+ * 
+ * @param {type} value
+ * @param {type} pretty
+ * @return {Number|String}
+ */
+function print(value, pretty) {
+                </pre>                
+                <div>
+                    Now check the Navigator looks like this:</div><br/>
+
+                <img class="w40" src="images/auto.png" alt="Documentation 1"/>
+                <div>NetBeans tries to identify the return type so you can even removed the @return annotation. Or you can add some other type like</div>
+                <pre>
+/**
+ * Hey there...
+ * @param {String} value String to be printed
+ * @param {Boolean} pretty
+ * @return {Foo|Bar|String} Some random object
+ */
+function print(value, pretty) {
+                </pre>
+                and see that Navigator reflects the change.
+                <ul style="list-style: circle">
+                    <li>Task: Code Completion
+                        <ol>
+                            <li>In JavaScript file, type "pr" and invoke code completion</li>
+                            <li>select function print()</li>
+                        </ol>
+                        <ul>
+                            <li>Result: Code completion look like on the image below</li>
+                        </ul>
+                    </li>  
+                </ul>
+                <img class="w70" src="images/doc2.png" alt="Sample Help Window"/>
+<br/>
+                 <h3>Autogenerating documentation II</h3>
+                Use following code:
+                <pre class="brush: js">
+function Printer(name) {
+
+/**
+    this.print = function(value, pretty) {
+        if (pretty)
+            return "&lt;h1&gt;" + value + "&lt;/h1&gt;";
+        else
+            return 0;
+    };
+
+}</pre>
+                and press Enter after the "/**". The result should look like
+                <pre>
+/**
+ * 
+ * @param {type} value
+ * @param {type} pretty
+ * @return {Number|String}
+ */
+this.print = function(value, pretty) {
+                </pre>             
+                Again check Navigator and code completion.
+                <br/><br/>
+                <h3>Information in Help Window</h3>
+                <div>
+                    Help window can use following tags: @deprecated, @see, @param, @extends, @since, @returns, @example and @throws
+                </div>
+                <div>
+                    Try following sample in NetBeans and make sure Help window shows correct information
+                </div>
+                <pre class="brush: js">
+/**
+ * Here is some text
+ * @deprecated because it lies, use addEvo instead
+ * @see This is <a href="http://netbeans.org">NetBeans!</a>
+ * @param {Number} a first number
+ * @param {Number} b second number
+ * @extends Object
+ * @since version 7.3
+ * @returns {void} nothing useful
+ * @example 
+ * var c = sum(1,2);
+ * @throws {OutOfMemeory} always
+ */
+function sum(a, b) {
+    return a+b+1;
+}
+</pre>
+                  <h3>Incorrect documentation hint</h3>
+                    Use following code:
+                  <pre class="brush: js">
+/**
+* @param foo
+* @param bar
+* @param void
+*/
+function test(foo, bar, foobar){}
+                  </pre>
+                    <ul style="list-style: circle">
+                    <li>Task: Incorrect documentation hint
+                        <ol>
+                            <li>In JavaScript file, paste the code above</li>
+                        </ol>
+                        <ul>
+                            <li>Result 1: NetBeans shows warning hint about undocumented parameter foobar</li>
+                            <li>Result 2: NetBeans shows warning hint about incorrect documentation void</li>
+                        </ul>
+                    </li>  
+                </ul>
+                    
+                    
+                      <h3>Optional argument support</h3>
+                    Use following code:
+                  <pre class="brush: js">
+/**
+* @param foo
+* @param bar
+* @param [foobar] Optional
+*/
+function test(foo, bar, foobar){}
+                  </pre>
+                    <ul style="list-style: circle">
+                    <li>Task: Optional argument
+                        <ol>
+                            <li>In JavaScript file, paste the code above</li>
+                        </ol>
+                        <ul>
+                            <li>Result 1: NetBeans shows warning hint about undocumented parameter foobar</li>
+                            <li>Result 2: NetBeans shows warning hint about incorrect documentation void</li>
+                        </ul>
+                    </li>  
+                </ul>
+                    
+            </div>
+
+        </div><!-- container -->
+
+
+
+        <!-- JS
+        ================================================== -->
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script src="javascripts/tabs.js"></script>
+        <script src="js/custom.js"></script>
+
+
+        <script type="text/javascript">
+            SyntaxHighlighter.defaults['gutter'] = false;
+            SyntaxHighlighter.all()
+        </script>
+    </body>
+</html>

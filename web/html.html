@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+
+        <meta charset="utf-8">
+        <title>NetBeans Testing Documentation</title>
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <!-- CSS
+  ================================================== -->
+        <link rel="stylesheet" href="stylesheets/base.css">
+        <link rel="stylesheet" href="stylesheets/skeleton.css">
+        <link rel="stylesheet" href="stylesheets/layout.css"> 
+        <link rel="stylesheet" href="stylesheets/custom.css">
+        <script src="js/libs/syntaxhighlighter/scripts/shCore.js"></script>
+        <script src="js/libs/syntaxhighlighter/scripts/shBrushCss.js"></script>
+        <script src="js/libs/syntaxhighlighter/scripts/shBrushXml.js"></script>
+        <link rel="stylesheet" type="text/css" href="js/libs/syntaxhighlighter/styles/shCore.css"/>
+        <link rel="stylesheet" type="text/css" href="js/libs/syntaxhighlighter/styles/shThemeDefault.css"/>
+        <!--[if lt IE 9]>
+                <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+
+        <div class="container">
+            <div class="sixteen columns">
+                <div class="two columns">
+                    <img src="images/netbeans-logo.png"/>
+                </div>
+                <div class="thirteen columns">
+                    <h1 class="remove-bottom" style="margin-top: 40px">NetBeans Testing App</h1>
+                    <h5>NetBeans 7.3</h5>    
+                </div>
+
+                <hr />
+            </div>
+
+            <div class="two columns sidebar">
+                <nav>
+                    <h3 id="logo">Menu</h3>
+                    <ul id="menu">
+
+                    </ul>
+
+                </nav>
+                &nbsp;
+            </div>
+            <div class="thirteen columns offset-by-one content">
+                <h2>HTML Editing</h2>
+                <ul style="list-style: circle">
+                    <li>  Current spec <a href="http://wiki.netbeans.org/TS_60_HTMLeditor">TS_60_HTMLeditor</a></li>
+                    <li>This spec is still valid and describes "plain old" CSS editor and should be tested as well</li>
+                </ul>
+                <h3 id="lifeediting">"Life" editing</h3>
+                <ul>  
+                    <li>Task: CSS Styles window population
+                        <ol>
+                            <li>Open some html file in editor and run it</li>
+                            <li>When the page is running, place cursor somewhere in the editor</li>
+                        </ol>
+                        <ul>
+                            <li>Result: CSS Styles window is populated and contains styles for element based on cursor position. Try to move cursor and make sure that 
+                                CSS Styles window and Rule editor change their content according to cursor position</li>
+                        </ul>
+                    </li>
+                    <li>Task: Go To Sources from Navigator
+                        <ol>
+                            <li>Invoke right click menu on some "green" element in Navigator</li>
+                            <li>Select Go To Sources</li>
+                        </ol>
+                        <ul>
+                            <li>Result: Cursor is put inside the given file on a correct position</li>
+                        </ul>
+                    </li>
+                    <li>Task: Go To Sources from Navigator II
+                        <ol>
+                            <li>Invoke right click menu on some "dynamic" element in Navigator</li>
+                        </ol>
+                        <ul>
+                            <li>Result: Go To Source is disabled </li>
+                        </ul>
+                    </li>
+                    <li>Task: Properties window
+                        <ol>
+                            <li>Put cursor inside some element and switch to Properties window (Window|Properties)</li>
+                            <li>The window contains list of HTML attributes</li>
+                            <li>Existing HTML attributes are shown together with their values</li>
+                        </ol>
+                        <ul>
+                            <li>Result: Select some attribute and modify it. Make sure that the changes are applied to the HTML file</li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+                <h3 id="offline">Offline editing</h3>
+                <ul style="list-style: circle">
+                    <li>  Current spec <a href="http://wiki.netbeans.org/TS_60_HTMLeditor">TS_60_HTMLeditor</a></li>
+                    <li>This spec is still valid and describes "plain old" CSS editor and should be tested as well</li>
+                </ul>
+                <ul>  
+                    <li>Task: Go To Sources from Navigator
+                        <ol>
+                            <li>Open HTML file in IDE</li>
+                            <li>Invoke right click menu on some element in Navigator</li>
+                            <li>Select Go To Sources</li>
+                        </ol>
+                        <ul>
+                            <li>Result: Cursor is put inside the given file on a correct position</li>
+                        </ul>
+                    </li>
+                    <li>Task: Properties window
+                        <ol>
+                            <li>Put cursor inside some element and switch to Properties window (Window|Properties)</li>
+                            <li>The window contains list of HTML attributes</li>
+                            <li>Existing HTML attributes are shown together with their values</li>
+                        </ol>
+                        <ul>
+                            <li>Result: Select some attribute and modify it. Make sure that the changes are applied to the HTML file</li>
+                        </ul>
+                    </li>                    
+                </ul>
+
+
+                <h3>Import styles and Go To Declaration</h3>
+                <div>
+                    Create a new HTML5 project and use following snippets
+                </div>
+                HTML File:
+                <pre class="brush: xml">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;&lt;/title&gt;
+        &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class="test"&gt;TODO write content&lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                </pre>
+                <br/>
+                Newcss file:
+                <pre class="brush: css">
+.root { 
+    display: block;
+}
+
+.test{
+    content:"c";
+}
+
+                </pre>
+  <br/>
+                Newcss1 file:
+                <pre class="brush: css">
+.test{
+   color:red;
+}
+
+                </pre>
+                <ul>  
+                    <li>Task: Add Reference to CSS Style
+                        <ol>
+                            <li>Open the html file (in HTML5 project) in NetBeans</li>
+                            <li>Click on the bulb icon, list of actions is offered.</li>
+                            <li>Click on "Add reference to ... newcss.css"</li>
+                        </ol>
+                        <ul>
+                            <li>Result: New LINK element is added to the HTML source with href attribute pointing to the css file </li>
+                        </ul>
+                    </li>
+                </ul>
+                <img src="images/addref.png" alt="Add Reference"/><br/>
+                <ul>
+                    <li>Task: Go To Declaration
+                        <ol>
+                            <li>Ctrl+Click on the class attribute</li>
+                            <li>List of found "test" class rules is displayed together with line number. If some file is not referenced from the HTML file, message "unrelated" is added.</li>
+                            <li>Click on the first item</li>
+                        </ol>
+                        <ul>
+                            <li>Result: Given css file is opened in editor and cursor is added to the appropriate possition. Repeat the same for ID attribute</li>
+                        </ul>
+                    </li>                    
+                </ul>
+                <img src="images/goto.png" alt="Go To"/><br/>
+                <ul>
+                    <li>Task: New Rule
+                        <ol>
+                            <li>Change the div's class attribute to "test3"</li>
+                            <li>Click on the bulb icon, it offers you to create new rule (for both css files).</li>
+                            <li>Click on the 2nd one (the one not linked in html)</li>
+                        </ol>
+                        <ul>
+                            <li>Result: New LINK element is added to the HTML source with href attribute pointing to the css file and the css file contains the new rule</li>
+                        </ul>
+                    </li>                    
+                </ul>
+                <img src="images/newclass.png" alt="New class in new file"/>
+                <ul>
+                    <li>Task: New class in new file
+                        <ol>
+                            <li>Create a new HTML/JavaScript project, all default values</li>
+                            <li>Add some class attribute to the div element</li>
+                            <li>Click on the bulb icon, it offers you to create new rule and new css file at the same time.</li>
+                            <li>Confirm this action</li>
+                        </ol>
+                        <ul>
+                            <li>Result: New class rule is created in a new css file and the file is linked from the html file</li>
+                        </ul>
+                    </li>                    
+                </ul>
+                <img src="images/newclass2.png" alt="New class in new file"/>
+                <ul>
+                    <li>Task: New class in existing file
+                        <ol>
+                            <li>Use the source from case above</li>
+                            <li>Change the value of class attribute</li>
+                            <li>Click on the bulb icon, it offers you to create new rule in all linked css files</li>
+                            <li>Confirm this action for some linked css file</li>
+                        </ol>
+                        <ul>
+                            <li>Result: New class rule is created in the css</li>
+                        </ul>
+                    </li>                    
+                </ul>
+            </div>
+
+        </div><!-- container -->
+ 
+
+
+        <!-- JS
+        ================================================== -->
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script src="javascripts/tabs.js"></script>
+        <script src="js/custom.js"></script>
+
+        <script type="text/javascript">
+            SyntaxHighlighter.defaults['gutter'] = false;
+            SyntaxHighlighter.all()
+        </script>
+    </body>
+</html>
