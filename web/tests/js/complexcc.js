@@ -6,7 +6,7 @@ function Person(n) {
     var age = 1;
     
     // TASK - check the function and properties of Math are offered
-    // Maht.|
+    // Math.|
     
     var maxAge = 70 + Math.round(Math.random() * 15) + Math.round(Math.random() * 15);
     function makeOlder() {
