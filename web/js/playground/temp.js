@@ -26,7 +26,7 @@ var p1 = new Player();
 var p2 = new Player();
 p1.setStatic(100);
 p1.stop();
-alert( p2.getStatic() ); //will print 100.​​​​​​​​​​​
+
 
 var PlayerEvo = function(){
     this.name = "better player";
